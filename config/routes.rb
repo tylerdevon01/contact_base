@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to:"home#index"
 
+  get "dashboard", to: "dashboard#index"
+
   # Devise Custom Routing
   devise_for :users, skip: :all
   devise_scope :user do

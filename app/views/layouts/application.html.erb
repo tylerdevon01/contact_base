@@ -10,8 +10,20 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div id="main-wrapper" class="d-flex">
+      <div id="sidebar-wrapper">
+        <% if user_signed_in? and !current_page?(controller:"home", action:"index")%>
+          <%= render 'shared/sidebar.html.erb'%>
+        <% end %>
+      </div>
+
+      <div id="page-content-wrapper">
+        <%= render 'shared/navbar.html.erb'%>
+        <div class="container-fluid">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+          <%= yield %>
+        </div>
+    </div>
   </body>
 </html>
