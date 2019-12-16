@@ -1,0 +1,10 @@
+<div class="container">
+    <h3> Edit Contact </h3>
+    <hr />
+</div>
+<div>
+    <%= form_for @contact do |f| %>
+        <%= f.text_field :name %>
+        <%= f.submit %>
+    <% end %>
+</div>

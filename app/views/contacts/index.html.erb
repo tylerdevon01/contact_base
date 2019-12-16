@@ -1,4 +1,17 @@
 <div class="container">
+    <%= link_to "Create Contact", new_contact_url %>
+</div>
+<br />
+<div class="container">
     <h3> Contacts </h3>
     <hr />
+</div>
+
+<div class="container">
+    <% @contacts.each do |contact| %>
+        <div class="card card-body">
+            <%= contact.name%>
+            <%= link_to "View", contact_url(contact) %>
+        </div>
+    <% end %>
 </div>

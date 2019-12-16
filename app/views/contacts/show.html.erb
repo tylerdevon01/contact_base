@@ -1,0 +1,12 @@
+<div class="container">
+    <h3> <%= @contact.name %> </h3>
+    <hr />
+</div>
+
+<div class="container">
+    <p> *Phone* </p>
+    <p> *Email* </p>
+</div>
+<div class="container">
+    <%= link_to "Delete", contact_url(@contact), method: :delete %>
+</div>
