@@ -4,8 +4,8 @@
 </div>
 
 <div class="container">
-    <p> *Phone* </p>
-    <p> *Email* </p>
+    <p> <%= @contact.phone %> </p>
+    <p> <%= @contact.email %></p>
 </div>
 <div class="container">
     <%= link_to "Delete", contact_url(@contact), method: :delete %>

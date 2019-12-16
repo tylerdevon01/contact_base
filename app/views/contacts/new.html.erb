@@ -5,6 +5,8 @@
 <div>
     <%= form_for @contact do |f| %>
         <%= f.text_field :name %>
+        <%= f.text_field :email %>
+        <%= f.text_field :phone %>
         <%= f.submit %>
     <% end %>
 </div>
