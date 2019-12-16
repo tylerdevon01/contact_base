@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  # Home
   root to:"home#index"
 
+  # Dashboard
   get "dashboard", to: "dashboard#index"
 
-  # Devise Custom Routing
+  # Contacts
+  resources :contacts
+
+  # Devise Auth
   devise_for :users, skip: :all
   devise_scope :user do
     get "login", to: "devise/sessions#new", as: :new_user_session
