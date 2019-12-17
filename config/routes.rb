@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   # Contacts
   resources :contacts
 
+  resources :contacts do
+    resources :touchpoints
+  end
+
   # Devise Auth
   devise_for :users, skip: :all
   devise_scope :user do

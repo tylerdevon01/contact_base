@@ -1,0 +1,10 @@
+<div class="container">
+    <h3> Edit Touchpoint </h3>
+    <hr />
+</div>
+<div>
+    <%= form_for [@contact, @touchpoint] do |f| %>
+        <%= f.text_area :description %>
+        <%= f.submit %>
+    <% end %>
+</div>

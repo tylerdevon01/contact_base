@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :contacts, dependent: :delete_all
+  has_many :touchpoints, through: :contacts
 end

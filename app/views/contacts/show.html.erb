@@ -7,6 +7,10 @@
     <p> <%= @contact.phone %> </p>
     <p> <%= @contact.email %></p>
 </div>
+
+<!-- LINKS -->
 <div class="container">
+    <%= link_to "View Touchpoints", contact_touchpoints_url(@contact) %>
+    <%= link_to "Edit", edit_contact_url(@contact) %>
     <%= link_to "Delete", contact_url(@contact), method: :delete %>
 </div>

@@ -1,0 +1,8 @@
+<h3> Touchpoints (Show)</h3>
+Touchpoint id: <%= params[:id]%><br/>
+Contact id: <%= params[:contact_id]%>
+<p> <%= @touchpoint.description %></p>
+
+<!-- LINKS -->
+<p> <%= link_to "Edit", edit_contact_touchpoint_path([@contact, @touchpoint]) %></p>
+<p> <%= link_to "Delete", contact_touchpoint_path([@contact, @touchpoint]), method: :delete %></p>

@@ -1,0 +1,8 @@
+<h3> Touchpoints (Index)</h3>
+<% @touchpoints.each do |touchpoint| %>
+    <%=touchpoint.description %>
+    <%=link_to "View", [@contact, touchpoint] %>
+<% end %>
+
+<!-- LINKS -->
+<%=link_to "New", new_contact_touchpoint_url(@contact) %>
