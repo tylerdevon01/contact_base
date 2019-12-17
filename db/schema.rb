@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_16_224004) do
+ActiveRecord::Schema.define(version: 2019_12_17_144713) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 2019_12_16_224004) do
     t.string "email"
     t.string "phone"
     t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
+  create_table "contacts_pipelines", id: false, force: :cascade do |t|
+    t.integer "pipeline_id", null: false
+    t.integer "contact_id", null: false
+    t.index ["contact_id"], name: "index_contacts_pipelines_on_contact_id"
+    t.index ["pipeline_id"], name: "index_contacts_pipelines_on_pipeline_id"
+  end
+
+  create_table "pipelines", force: :cascade do |t|
+    t.string "title"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_pipelines_on_user_id"
   end
 
   create_table "touchpoints", force: :cascade do |t|
@@ -45,6 +60,7 @@ ActiveRecord::Schema.define(version: 2019_12_16_224004) do
   end
 
   add_foreign_key "contacts", "users"
+  add_foreign_key "pipelines", "users"
   add_foreign_key "touchpoints", "contacts"
   add_foreign_key "touchpoints", "users"
 end

@@ -1,0 +1,17 @@
+<div class="container">
+    <%= link_to "Create Pipeline", new_pipeline_url %>
+</div>
+<br />
+<div class="container">
+    <h3> Pipelines </h3>
+    <hr />
+</div>
+
+<div class="container">
+    <% @pipelines.each do |pipe| %>
+        <div class="card card-body">
+            <%= pipe.title%>
+            <%= link_to "View", pipeline_url(pipe) %>
+        </div>
+    <% end %>
+</div>

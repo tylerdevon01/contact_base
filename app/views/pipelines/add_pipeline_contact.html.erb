@@ -1,0 +1,4 @@
+<%= form_for @pipeline do |f| %>
+    <%= f.collection_check_boxes :contact_ids, Contact.all, :id, :name %>
+    <%= f.submit "Save"%>
+<% end %>

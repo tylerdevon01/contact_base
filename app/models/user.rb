@@ -6,4 +6,5 @@ class User < ApplicationRecord
   
   has_many :contacts, dependent: :delete_all
   has_many :touchpoints, through: :contacts
+  has_many :pipelines
 end

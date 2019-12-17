@@ -1,0 +1,20 @@
+<div class="container">
+    <h3> <%= @pipeline.title %> </h3>
+    <hr />
+</div>
+
+<div class="container">
+    <h5> Contacts </h5>
+    <% @pipeline.contacts.each do |contact|%>
+        <%= contact.name %>
+    <%end%>
+</div>
+<br />
+<!-- LINKS -->
+<div class="container">
+    <%= link_to "Edit Pipeline Contacts", add_pipeline_contact_url(@pipeline) %>
+    <br />
+    <%= link_to "Edit Pipeline", edit_pipeline_url(@pipeline) %>
+    <br />
+    <%= link_to "Delete", pipeline_url(@pipeline), method: :delete %>
+</div>

@@ -8,10 +8,16 @@ Rails.application.routes.draw do
   # Contacts
   resources :contacts
 
+  # Touchpoints
   resources :contacts do
     resources :touchpoints
   end
 
+  # Pipelines
+  resources :pipelines
+  get '/pipelines/:id/add_contact', to: "pipelines#add_pipeline_contact", as: :add_pipeline_contact
+  post '/pipelines/:id/add_contact', to: "pipelines#create_pipeline_contact"
+  
   # Devise Auth
   devise_for :users, skip: :all
   devise_scope :user do
