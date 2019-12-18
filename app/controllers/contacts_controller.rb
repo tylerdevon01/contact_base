@@ -39,6 +39,6 @@ private
         @contact = Contact.find_by(id:params[:id])
     end
     def contact_params
-        params.require(:contact).permit(:name, :email, :phone)
+        params.require(:contact).permit(:name, :email, :phone, :label)
     end
 end

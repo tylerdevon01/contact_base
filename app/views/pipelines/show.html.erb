@@ -3,13 +3,22 @@
     <hr />
 </div>
 
-<div class="container">
-    <h5> Contacts </h5>
-    <% @pipeline.contacts.each do |contact|%>
-        <%= contact.name %>
-    <%end%>
+<div class="container mb-5 pb-5">
+    <div class="row">
+        <% label_options.each do |label| %>
+            <div class="col-sm">
+                <h5><%= label %></h5>
+                <% @pipeline.contacts.where(label: get_label(label)).each do |contact|%>
+                    <%= link_to contact.name, contact_url(contact) %>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
 </div>
 <br />
+<br />
+<br />
+
 <!-- LINKS -->
 <div class="container">
     <%= link_to "Edit Pipeline Contacts", add_pipeline_contact_url(@pipeline) %>
