@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="clearfix">
+        <div class="float-left">
+            <h3> Deals </h3>
+        </div>
+        <div class="float-right">
+            <%= link_to "New Deal", new_deal_url %>
+        </div>
+    </div>
+    <hr /><br />
+    <% @deals.each do |deal| %>
+        <div class="card card-body mb-3">
+            <div class="clearfix">
+                <span class="float-left"><%=deal.title%></span>
+                <span class="float-right"><%=link_to "View", deal %></span>
+            </div>
+        </div>
+    <% end %>
+    <br />
+    <!-- LINKS -->
+</div>

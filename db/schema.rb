@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_18_142049) do
+ActiveRecord::Schema.define(version: 2019_12_18_163102) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -24,11 +24,27 @@ ActiveRecord::Schema.define(version: 2019_12_18_142049) do
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
+  create_table "contacts_deals", id: false, force: :cascade do |t|
+    t.integer "deal_id", null: false
+    t.integer "contact_id", null: false
+    t.index ["contact_id"], name: "index_contacts_deals_on_contact_id"
+    t.index ["deal_id"], name: "index_contacts_deals_on_deal_id"
+  end
+
   create_table "contacts_pipelines", id: false, force: :cascade do |t|
     t.integer "pipeline_id", null: false
     t.integer "contact_id", null: false
     t.index ["contact_id"], name: "index_contacts_pipelines_on_contact_id"
     t.index ["pipeline_id"], name: "index_contacts_pipelines_on_pipeline_id"
+  end
+
+  create_table "deals", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_deals_on_user_id"
   end
 
   create_table "pipelines", force: :cascade do |t|
@@ -69,6 +85,7 @@ ActiveRecord::Schema.define(version: 2019_12_18_142049) do
   end
 
   add_foreign_key "contacts", "users"
+  add_foreign_key "deals", "users"
   add_foreign_key "pipelines", "users"
   add_foreign_key "touchpoints", "contacts"
   add_foreign_key "touchpoints", "users"

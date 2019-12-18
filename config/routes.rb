@@ -18,7 +18,12 @@ Rails.application.routes.draw do
   get '/pipelines/:id/add_contact', to: "pipelines#add_pipeline_contact", as: :add_pipeline_contact
   post '/pipelines/:id/add_contact', to: "pipelines#create_pipeline_contact"
   
+  # Advanced Search
   resources :searches
+
+  # Deals
+  resources :deals
+
   # Devise Auth
   devise_for :users, skip: :all
   devise_scope :user do
