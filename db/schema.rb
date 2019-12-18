@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_18_015540) do
+ActiveRecord::Schema.define(version: 2019_12_18_142049) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(version: 2019_12_18_015540) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_pipelines_on_user_id"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string "keywords"
+    t.integer "label"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "touchpoints", force: :cascade do |t|

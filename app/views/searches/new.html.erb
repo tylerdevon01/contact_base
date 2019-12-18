@@ -1,0 +1,11 @@
+<div class="container">
+    <h3> Advanced Search </h3>
+    <hr /><br />
+    <%= form_for @search do |f|%>
+        <%= f.text_field :keywords, :class=>"form-control"%>
+        <br />
+        <%= f.select :label, [['Lead', 1], ['Prospect', 2], ['Oppurtunity', 3], ['Deal', 4]], {} %>
+        <br /><br />
+        <%= f.submit "Search", :class=>"btn btn-primary"%>
+    <% end %>
+</div>

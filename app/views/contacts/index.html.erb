@@ -8,15 +8,12 @@
         </div>
     </div>
     <hr />
-</div>
 
-<div class="container">
-    <% @contacts.each do |contact| %>
-        <div class="card card-body mb-3">
-            <div class="clearfix">
-                <span class="float-left"><%= contact.name %></span>
-                <span class="float-right"><%= link_to "View", contact_url(contact)%></span>
-            </div>
-        </div>
-    <% end %>
+    <div id="search" class="mb-5 mt-4">
+        <%= render "search.html.erb"%>
+    </div>
+
+    <div id="contacts">
+        <%= render @contacts%>
+    </div>
 </div>
