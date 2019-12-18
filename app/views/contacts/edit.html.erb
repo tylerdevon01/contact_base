@@ -5,6 +5,9 @@
 <div>
     <%= form_for @contact do |f| %>
         <%= f.text_field :name %>
+        <%= f.text_field :email %>
+        <%= f.text_field :phone %>
+        <%= f.select(:label, [['Lead', 1], ['Prospect', 2], ['Oppurtunity', 3], ['Deal', 4]]) %>
         <%= f.submit %>
     <% end %>
 </div>
