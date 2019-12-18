@@ -1,4 +1,12 @@
 <%= form_for @pipeline do |f| %>
-    <%= f.collection_check_boxes :contact_ids, Contact.all, :id, :name %>
-    <%= f.submit "Save"%>
+    <%= f.collection_check_boxes :contact_ids, Contact.all, :id, :name do |box| %>
+        <div class="card card-body mb-3">
+            <div class="clearfix">
+                <span class="float-left"><%= box.label %></span>
+                <span class="float-right"><%= box.check_box%></span>
+            </div>
+        </div>
+    <% end %>
+    
+    <%= f.submit "Save", :class=>"btn btn-primary"%>
 <% end %>

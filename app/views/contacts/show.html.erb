@@ -1,8 +1,14 @@
 <div class="container mb-5">
     <div class="row">
-        <div class="col-lg-4">
-            <h3> <%= @contact.name %> </h3>
-            <br/>
+        <div class="col-lg-6">
+            <div>
+                <h3> <%= @contact.name %> </h3>
+                <span class="badge badge-primary"><%= get_label_text(@contact.label)%></span>
+            </div>
+            <!-- FOR SAME LINE BADGE - DIV: class="d-flex" style="align-items: center;" -->
+            <br />
+            <br />
+
             <div>
                 <div class="clearfix">
                     <div class="float-left">
@@ -21,11 +27,13 @@
                         <%= @contact.email %>
                     </div>
                 </div><hr />
-
-                <div class="clearfix">
-                    <%= link_to "Touchpoints", contact_touchpoints_url(@contact), :class => "float-right ml-3" %>
-                </div>
                 <br/>
+            </div>
+            <br />
+            <div class="container">
+                <%= link_to "Edit", edit_contact_url(@contact), :class=>"mr-3 text-secondary" %>
+                <%= link_to "Delete", contact_url(@contact), method: :delete, :class=>"text-secondary"%>
+                <%= link_to "Touchpoints", contact_touchpoints_url(@contact), :class => "float-right" %>
             </div>  
         </div>
 
@@ -35,9 +43,4 @@
 </div>    
 
     <!-- LINKS -->
-    <div class="container">
-        <%= link_to "Edit", edit_contact_url(@contact), :class=>"mr-3 text-secondary" %>
-        <%= link_to "Delete", contact_url(@contact), method: :delete, :class=>"text-secondary"%>
-        
-    </div>
 </div>

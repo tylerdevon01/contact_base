@@ -1,8 +1,18 @@
-<h3> Touchpoints (Show)</h3>
-Touchpoint id: <%= params[:id]%><br/>
-Contact id: <%= params[:contact_id]%>
-<p> <%= @touchpoint.description %></p>
+<div class="container">
+    <h3> Touchpoint</h3>
+    <hr />
+    <%
+=begin%>
+ Touchpoint id: <%= params[:id]%><br/>
+    Contact id: <%= params[:contact_id]%> 
+<%
+=end%>
+    <p class="lead"><%= @touchpoint.contact.name%></p>
+    <p> <%= @touchpoint.description %></p>
 
-<!-- LINKS -->
-<p> <%= link_to "Edit", edit_contact_touchpoint_path([@contact, @touchpoint]) %></p>
-<p> <%= link_to "Delete", contact_touchpoint_path([@contact, @touchpoint]), method: :delete %></p>
+    <!-- LINKS -->
+    <div class="clearfix mt-5">
+        <span class="float-left"><%= link_to "Edit", edit_contact_touchpoint_path([@contact, @touchpoint]), :class=>"text-secondary"%></span>
+        <span class="float-left ml-3"><%= link_to "Delete", contact_touchpoint_path([@contact, @touchpoint]), method: :delete, :class=>"text-secondary" %></span>
+    </div>
+</div>

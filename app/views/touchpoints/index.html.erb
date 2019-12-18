@@ -1,8 +1,17 @@
-<h3> Touchpoints (Index)</h3>
-<% @touchpoints.each do |touchpoint| %>
-    <%=touchpoint.description %>
-    <%=link_to "View", [@contact, touchpoint] %>
-<% end %>
 
-<!-- LINKS -->
-<%=link_to "New", new_contact_touchpoint_url(@contact) %>
+<div class="container">
+    <h3> <%= @contact.name %> Touchpoints</h3>
+    <hr />
+    <%=link_to "New Touchpoint", new_contact_touchpoint_url(@contact) %>
+    <br /><br />
+    <% @touchpoints.each do |touchpoint| %>
+        <div class="card card-body mb-3">
+            <div class="clearfix">
+                <span class="float-left"><%=touchpoint.description %></span>
+                <span class="float-right"><%=link_to "View", [@contact, touchpoint] %></span>
+            </div>
+        </div>
+    <% end %>
+    <br />
+    <!-- LINKS -->
+</div>
