@@ -57,3 +57,8 @@ body {
         margin-left: -15rem;
     }
 }
+
+
+.flex-fixed-width-item {
+    flex: 0 0 100px;
+}
