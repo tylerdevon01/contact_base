@@ -14,12 +14,20 @@
       <%= render 'shared/sidebar.html.erb'%>
       <div id="page-content-wrapper">
         <%= render 'shared/navbar.html.erb'%>
-        <div class="container-fluid">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-          <div class="container p-5">
+        <div id="main-content" class="container-fluid">
+          <% if notice %>
+            <p class="notice"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert"><%= alert %></p>
+          <% end %>
+          <% if current_page?(action:"index", controller:"contacts")%>
             <%= yield %>
-          </div>
+          <% else %>
+            <div class="container p-5">
+              <%= yield %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

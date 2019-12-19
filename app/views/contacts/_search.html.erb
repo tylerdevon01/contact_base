@@ -1,9 +1,11 @@
 <%= form_tag contacts_path, method: :get do %>
-    <div class="form-inline">
-        <div class="form-group mr-3">
-            <%= text_field_tag :search, params[:search], :class=>"form-control", :placeholder=>"Search for a contact"%>
+    <div class="">
+        <div class="form-group">
+            <%= text_field_tag :search, params[:search], :class=>"form-control form-control-sm", :placeholder=>"Search for a contact"%>
         </div>
-        <%= button_tag "Search", name:nil, :class=>"btn btn-primary mr-3"%>
-        <%= link_to "Advanced Search", new_search_path, :class=>"small text-secondary"%>
     </div>
 <% end %>
+
+
+<%# button_tag "Search", name:nil, :class=>"btn btn-primary mr-3"%>
+<%# link_to "Advanced Search", new_search_path, :class=>"small text-secondary"%>

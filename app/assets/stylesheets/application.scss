@@ -17,6 +17,7 @@ body {
     overflow-x: hidden;
 }
 
+
 #sidebar-wrapper {
     min-height: 100vh;
     margin-left: -15rem;
@@ -61,4 +62,11 @@ body {
 
 .flex-fixed-width-item {
     flex: 0 0 100px;
+}
+
+#contact-info-col{
+    min-height: calc(100vh - 3.6rem);
+}
+
+#contact-index-wrapper{
 }

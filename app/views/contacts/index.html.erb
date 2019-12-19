@@ -1,19 +1,20 @@
-<div class="container">
-    <div class="clearfix">
-        <div class="float-left">
-            <h3> Contacts </h3>
+<div id="contact-index-wrapper" class="row">
+    <div class="col-md-4 px-4 py-3">
+        <div class="mb-3">
+            <%= render "search.html.erb"%>
         </div>
-        <div class="float-right">
-            <%= link_to "New Contact", new_contact_url %>
+    
+        <%= render @contacts %>
+
+        <div class="mt-5">
+            <br />
+            <br />
+            <br />
+            <br />
+            <%= link_to "+", new_contact_url, :class=>"btn-sm btn-light" %>
         </div>
     </div>
-    <hr />
-
-    <div id="search" class="mb-5 mt-4">
-        <%= render "search.html.erb"%>
-    </div>
-
-    <div id="contacts">
-        <%= render @contacts%>
+    <div id="contact-info-col" class="col-md border-left p-3">
+        Contact info goes here
     </div>
 </div>
