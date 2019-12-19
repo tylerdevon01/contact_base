@@ -12,8 +12,22 @@
         <div class="form-group">
             <%= f.text_area :description, :class=>"form-control" %>
         </div>
+
+        <br />
+        <h4>Edit Contacts</h4>
+        <hr />
+            <%= f.collection_check_boxes :contact_ids, current_user.contacts.all, :id, :name do |box| %>
+                <div class="card card-body mb-3">
+                    <div class="clearfix">
+                        <span class="float-left"><%= box.label %></span>
+                        <span class="float-right"><%= box.check_box %></span>
+                    </div>
+                </div>
+            <% end %>
         <div class="mt-3">
             <%= f.submit "Save", :class=>"btn btn-primary" %>
         </div>
     <% end %>
+
+    
 </div>
