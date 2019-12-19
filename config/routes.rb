@@ -20,8 +20,8 @@ Rails.application.routes.draw do
 
   # Pipelines
   resources :pipelines
-  get '/pipelines/:id/add_contact', to: "pipelines#add_pipeline_contact", as: :add_pipeline_contact
-  post '/pipelines/:id/add_contact', to: "pipelines#create_pipeline_contact"
+  get '/pipelines/:id/add_deal', to: "pipelines#add_pipeline_deal", as: :add_pipeline_deal
+  
   
   # Advanced Search
   resources :searches

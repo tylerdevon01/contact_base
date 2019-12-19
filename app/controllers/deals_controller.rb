@@ -41,7 +41,7 @@ class DealsController < ApplicationController
     end
 private
     def deal_params
-        params.require(:deal).permit(:title, :description, :company_id, contact_ids:[])
+        params.require(:deal).permit(:title, :description, :label, :company_id, contact_ids:[])
     end
     def get_deal
         @deal = current_user.deals.find_by(id:params[:id])

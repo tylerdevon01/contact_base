@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_19_141833) do
+ActiveRecord::Schema.define(version: 2019_12_19_161526) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -44,13 +44,6 @@ ActiveRecord::Schema.define(version: 2019_12_19_141833) do
     t.index ["deal_id"], name: "index_contacts_deals_on_deal_id"
   end
 
-  create_table "contacts_pipelines", id: false, force: :cascade do |t|
-    t.integer "pipeline_id", null: false
-    t.integer "contact_id", null: false
-    t.index ["contact_id"], name: "index_contacts_pipelines_on_contact_id"
-    t.index ["pipeline_id"], name: "index_contacts_pipelines_on_pipeline_id"
-  end
-
   create_table "deals", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -58,8 +51,16 @@ ActiveRecord::Schema.define(version: 2019_12_19_141833) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "company_id"
+    t.integer "label"
     t.index ["company_id"], name: "index_deals_on_company_id"
     t.index ["user_id"], name: "index_deals_on_user_id"
+  end
+
+  create_table "deals_pipelines", id: false, force: :cascade do |t|
+    t.integer "pipeline_id", null: false
+    t.integer "deal_id", null: false
+    t.index ["deal_id"], name: "index_deals_pipelines_on_deal_id"
+    t.index ["pipeline_id"], name: "index_deals_pipelines_on_pipeline_id"
   end
 
   create_table "pipelines", force: :cascade do |t|

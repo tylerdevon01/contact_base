@@ -33,7 +33,7 @@ class PipelinesController < ApplicationController
         @pipeline.destroy
         redirect_to pipelines_url
     end
-    def add_pipeline_contact
+    def add_pipeline_deal
         get_pipeline
     end
 
@@ -45,6 +45,6 @@ private
         @pipeline = Pipeline.find_by(id: params[:id])
     end
     def pipeline_params
-        params.require(:pipeline).permit(:title, contact_ids:[])
+        params.require(:pipeline).permit(:title, deal_ids:[])
     end
 end

@@ -3,15 +3,17 @@
         <h3> <%= @pipeline.title %> </h3>
         <hr />
     </div>
-
+    
     <div class=" mb-5 pb-5">
         <div class="row">
             <% label_options.each do |label| %>
                 <div class="col-sm">
                     <h5><%= label %></h5>
-                    <% @pipeline.contacts.where(label: get_label(label)).each do |contact|%>
-                        <%= link_to contact.name, contact_url(contact) %>
+
+                    <% @pipeline.deals.where(label: get_label(label)).each do |deal|%>
+                        <%= link_to deal.title, deal_url(deal) %>
                     <% end %>
+
                 </div>
             <% end %>
         </div>
@@ -22,7 +24,7 @@
 
     <!-- LINKS -->
     <div>
-        <%= link_to "Edit Pipeline Contacts", add_pipeline_contact_url(@pipeline) %>
+        <%= link_to "Edit Pipeline Deals", add_pipeline_deal_url(@pipeline) %>
         <br />
         <%= link_to "Edit Pipeline", edit_pipeline_url(@pipeline) %>
         <br />

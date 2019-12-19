@@ -6,6 +6,7 @@
         <br />
         <%= f.text_area :description, :class=>"form form-control", :placeholder=>"Description" %>
         <br />
+        <%= f.select :label, [['Lead', 1], ['Prospect', 2], ['Oppurtunity', 3], ['Deal', 4]], {}%>
         <%= f.submit "Create", :class=>"btn btn-primary"%>
     <% end %>
 </div>

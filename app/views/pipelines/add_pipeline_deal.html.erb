@@ -1,6 +1,6 @@
 <div class="container p-5">
     <%= form_for @pipeline do |f| %>
-        <%= f.collection_check_boxes :contact_ids, Contact.all, :id, :name do |box| %>
+        <%= f.collection_check_boxes :deal_ids, current_user.deals.all, :id, :title do |box| %>
             <div class="card card-body mb-3">
                 <div class="clearfix">
                     <span class="float-left"><%= box.label %></span>
