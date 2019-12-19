@@ -22,7 +22,22 @@
                         <%= @company.description %>
                     </div>
                 </div>
+                <hr />
+                <div class="clearfix">
+                    <div class="float-left">
+                        contacts
+                    </div>
+                    <div class="float-right">
+                        <% @company.contacts.each do |contact| %>
+                            <%= link_to contact do %>
+                                <%= contact.name %>
+                            <% end %>
+                            <br />
+                        <% end %>
+                    </div>
+                </div>
             </div>
+            
 
             <div id="contact-links">
                 <%= link_to "Edit", edit_company_url(@company), :class=>"mr-3 text-secondary" %>

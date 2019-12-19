@@ -1,8 +1,8 @@
-    <%= f.collection_radio_buttons :company_id, current_user.companys.all, :id, :name do |box| %>
-        <div class="card card-body mb-3">
-            <div class="clearfix">
-                <span class="float-left"><%= box.label %></span>
-                <span class="float-right"><%= box.radio_button %></span>
-            </div>
+<%= f.collection_radio_buttons :company_id, current_user.companys.all, :id, :name do |box| %>
+    <div class="card card-body mb-3">
+        <div class="clearfix">
+            <span class="float-left"><%= box.label %></span>
+            <span class="float-right"><%= box.radio_button %></span>
         </div>
-    <% end %>
+    </div>
+<% end %>

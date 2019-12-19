@@ -34,7 +34,9 @@ class CompaniesController < ApplicationController
         @company.destroy
         redirect_to companies_url
     end
-
+    def add_contacts
+        get_company
+    end
 private
     def get_company
         @company = Company.find_by(id:params[:id])
@@ -47,7 +49,7 @@ private
         end
     end
     def company_params
-        params.require(:company).permit(:name, :description, :phone)
+        params.require(:company).permit(:name, :description, :phone, contact_ids:[])
     end
     def search_companies(search)
         companys = Company.order(:name)

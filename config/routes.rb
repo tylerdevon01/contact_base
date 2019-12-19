@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   # Companies
   resources :companies
+  get '/companies/:id/add_contacts', to: "companies#add_contacts", as: :add_company_contacts
 
   # Devise Auth
   devise_for :users, skip: :all
