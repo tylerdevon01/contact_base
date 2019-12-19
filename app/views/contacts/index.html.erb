@@ -14,6 +14,32 @@
         </div>
     </div>
     <div id="contact-info-col" class="col-md border-left p-3">
-        Contact info goes here
+        <% @contacts.each do |contact|%>
+            <% @contact = Contact.find_by(id: contact.id) %>
+            
+            <div id="<%=contact.id%>-info" class="contact-info">
+                <%= render "contact_info.html.erb", :locals=>{contact: @contact}%>
+            </div>
+
+        <% end %>
     </div>
 </div>
+
+<script>
+    $(".contact-info").hide()
+    $(".contact-link").click(function(event){
+        style_contact_link(event.target.id)
+        toggle_contact_info(event.target.id)
+    });
+
+    style_contact_link = function(t){
+        $(".contact-link").removeClass("text-secondary")
+        $(`#${t}`).removeClass("text-dark")
+        $(`#${t}`).addClass("text-secondary")
+    }
+    
+    toggle_contact_info = function(t){
+        $(".contact-info").hide()
+        $(`#${event.target.id}-info`).show()
+    }
+</script>

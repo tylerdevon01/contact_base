@@ -1,8 +1,6 @@
-<div class="my-2">
-    <%= link_to contact do %>
-        <strong class="text-dark"> <%= contact.name %></strong>
+<div class="my-2 contact-link" id="<%=contact.id%>">
+        <strong id="<%=contact.id%>"> <%= contact.name %></strong>
         <% if contact.company %>
-            <small class="ml-2 text-secondary"><%= contact.company.name %></small>
+            <small id="<%=contact.id%>" class="ml-2 text-secondary"><%= contact.company.name %></small>
         <%end%>
-    <%end%>
 </div>
