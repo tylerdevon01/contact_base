@@ -4,6 +4,7 @@ class ContactsController < ApplicationController
     end
     def show
         get_contact
+        @company = current_user.companys.find_by(id: @contact.company)
     end
     def new
         @contact = current_user.contacts.build
@@ -34,6 +35,9 @@ class ContactsController < ApplicationController
         @contact.destroy
         redirect_to contacts_url
     end
+    def add_company
+        get_contact
+    end
 
 private
     def get_contact
@@ -47,7 +51,7 @@ private
         end
     end
     def contact_params
-        params.require(:contact).permit(:name, :email, :phone, :label)
+        params.require(:contact).permit(:name, :email, :phone, :label, :company_id)
     end
     def search_contacts(search)
         contacts = Contact.order(:name)

@@ -1,0 +1,38 @@
+<div class="container mb-5 p-5">
+    <div class="row">
+        <div class="col-lg-6">
+            <div id="contact-header" class="mb-5">
+                <h3> <%= @company.name %> </h3>
+            </div>
+            <div id="contact-details" class="mb-5">
+                <div class="clearfix">
+                    <div class="float-left">   
+                        phone
+                    </div>
+                    <div class="float-right">
+                        <%= @company.phone %>
+                    </div>
+                </div>
+                <hr />
+                <div class="clearfix">
+                    <div class="float-left">
+                        about
+                    </div>
+                    <div class="float-right">
+                        <%= @company.description %>
+                    </div>
+                </div>
+            </div>
+
+            <div id="contact-links">
+                <%= link_to "Edit", edit_company_url(@company), :class=>"mr-3 text-secondary" %>
+                <%= link_to "Delete", company_url(@company), method: :delete, :class=>"text-secondary"%>
+                <%# link_to "Touchpoints", company_touchpoints_url(@company), :class => "float-right" %>
+            </div>  
+        </div>
+
+        <div class="col-lg-8"> 
+            <!-- Right Col -->
+        </div>
+    </div>
+</div>

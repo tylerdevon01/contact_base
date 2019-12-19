@@ -1,29 +1,31 @@
-<div class="container">
-    <h3> <%= @pipeline.title %> </h3>
-    <hr />
-</div>
-
-<div class="container mb-5 pb-5">
-    <div class="row">
-        <% label_options.each do |label| %>
-            <div class="col-sm">
-                <h5><%= label %></h5>
-                <% @pipeline.contacts.where(label: get_label(label)).each do |contact|%>
-                    <%= link_to contact.name, contact_url(contact) %>
-                <% end %>
-            </div>
-        <% end %>
+<div class="container p-5">
+    <div>
+        <h3> <%= @pipeline.title %> </h3>
+        <hr />
     </div>
-</div>
-<br />
-<br />
-<br />
 
-<!-- LINKS -->
-<div class="container">
-    <%= link_to "Edit Pipeline Contacts", add_pipeline_contact_url(@pipeline) %>
+    <div class=" mb-5 pb-5">
+        <div class="row">
+            <% label_options.each do |label| %>
+                <div class="col-sm">
+                    <h5><%= label %></h5>
+                    <% @pipeline.contacts.where(label: get_label(label)).each do |contact|%>
+                        <%= link_to contact.name, contact_url(contact) %>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
     <br />
-    <%= link_to "Edit Pipeline", edit_pipeline_url(@pipeline) %>
     <br />
-    <%= link_to "Delete", pipeline_url(@pipeline), method: :delete %>
+    <br />
+
+    <!-- LINKS -->
+    <div>
+        <%= link_to "Edit Pipeline Contacts", add_pipeline_contact_url(@pipeline) %>
+        <br />
+        <%= link_to "Edit Pipeline", edit_pipeline_url(@pipeline) %>
+        <br />
+        <%= link_to "Delete", pipeline_url(@pipeline), method: :delete %>
+    </div>
 </div>

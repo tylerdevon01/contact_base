@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'companies/index'
+  get 'companies/new'
+  get 'companies/show'
+  get 'companies/edit'
   # Home
   root to:"home#index"
 
@@ -7,6 +11,7 @@ Rails.application.routes.draw do
 
   # Contacts
   resources :contacts
+  get '/contacts/:id/add_company', to: "contacts#add_company", as: :add_contact_company
 
   # Touchpoints
   resources :contacts do
@@ -23,6 +28,9 @@ Rails.application.routes.draw do
 
   # Deals
   resources :deals
+
+  # Companies
+  resources :companies
 
   # Devise Auth
   devise_for :users, skip: :all

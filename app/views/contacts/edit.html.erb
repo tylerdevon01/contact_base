@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container p-5">
     <h3> Edit Contact </h3>
     <hr /><br />
 
@@ -15,8 +15,23 @@
         <div class="form-group">
             <%= f.select :label, [['Lead', 1], ['Prospect', 2], ['Oppurtunity', 3], ['Deal', 4]], {}%>
         </div>
+
+        <br />
+        <br />
+        <h4>Edit Company</h4>
+        <hr />
+            <%= f.collection_radio_buttons :company_id, current_user.companys.all, :id, :name do |box| %>
+                <div class="card card-body mb-3">
+                    <div class="clearfix">
+                        <span class="float-left"><%= box.label %></span>
+                        <span class="float-right"><%= box.radio_button %></span>
+                    </div>
+                </div>
+            <% end %>
+
+        <br />
         <div class="mt-3">
-            <%= f.submit "Create", :class=>"btn btn-primary" %>
+            <%= f.submit "Save", :class=>"btn btn-primary" %>
         </div>
     <% end %>
 </div>

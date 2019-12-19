@@ -1,12 +1,7 @@
-<div class="container">
+<div class="container p-5">
     <h3> Touchpoint</h3>
     <hr />
-    <%
-=begin%>
- Touchpoint id: <%= params[:id]%><br/>
-    Contact id: <%= params[:contact_id]%> 
-<%
-=end%>
+
     <p class="lead"><%= @touchpoint.contact.name%></p>
     <p> <%= @touchpoint.description %></p>
 
