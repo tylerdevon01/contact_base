@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   # Deals
   resources :deals
+  get '/deals/:id/add_contacts', to: "deals#add_contacts", as: :add_deal_contacts
+  get '/deals/:id/add_company', to: "deals#add_company", as: :add_deal_company
 
   # Companies
   resources :companies

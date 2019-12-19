@@ -1,9 +1,10 @@
 class DealsController < ApplicationController
     def index
-        @deals = current_user.deals.all
+        get_all_deals
     end
     def show
-        @deal = current_user.deals.find_by(id:params[:id])
+        get_deal
+        get_company
     end
     def new
         @deal = current_user.deals.build
@@ -17,10 +18,10 @@ class DealsController < ApplicationController
         end
     end
     def edit
-        @deal = current_user.deals.find_by(id:params[:id])
+        get_deal
     end
     def update
-        @deal = current_user.deals.find_by(id:params[:id])
+        get_deal
         if @deal.update(deal_params)
             redirect_to @deal
         else
@@ -28,12 +29,27 @@ class DealsController < ApplicationController
         end
     end
     def destroy
-        @deal = current_user.deals.find_by(id:params[:id])
+        get_deal
         @deal.destroy
         redirect_to deals_url
     end
+    def add_contacts
+        get_deal
+    end
+    def add_company
+        get_deal
+    end
 private
     def deal_params
-        params.require(:deal).permit(:title, :description)
+        params.require(:deal).permit(:title, :description, :company_id, contact_ids:[])
+    end
+    def get_deal
+        @deal = current_user.deals.find_by(id:params[:id])
+    end
+    def get_all_deals
+        @deals = current_user.deals.all
+    end
+    def get_company
+        @company = @deal.company
     end
 end

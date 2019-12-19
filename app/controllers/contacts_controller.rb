@@ -5,6 +5,7 @@ class ContactsController < ApplicationController
     def show
         get_contact
         @company = current_user.companys.find_by(id: @contact.company)
+        @deals = @contact.deals
     end
     def new
         @contact = current_user.contacts.build
