@@ -1,53 +1,46 @@
-<div class="container p-5">
-    <div class="mx-auto w-75">
-        <div id="contact-header">
-            <h3> <%= @contact.name %> </h3>
-            <span class="badge badge-primary"><%= get_label_text(@contact.label)%></span><!-- FOR SAME LINE BADGE - DIV: class="d-flex" style="align-items: center;" -->
-        </div>
-        <br />
-        <%= render "contacts/index/contact/tabs/tabs.html.erb", locals:{contact:@contact}%>
-        <br />
-        <div id="contact-details" class="contact-details-container mb-5">
-            <span class="clearfix contact-details">
-                <span class="contact-details-heading float-left">
-                    phone
-                </span>
-                <span class="contact-details-text float-right">
-                    <%= @contact.phone %>
-                </span>
-                
-            </span>
-            <hr />
+<div id="contact-header">
+    <h3> <%= @contact.name %> </h3>
+    <span class="badge badge-primary"><%= get_label_text(@contact.label)%></span><!-- FOR SAME LINE BADGE - DIV: class="d-flex" style="align-items: center;" -->
+</div>
 
-            <div class="contact-details clearfix">
-                <span class="contact-details-heading float-left">
-                    email
-                </span>
-                <span class="contact-details-text float-right">
-                    <%= @contact.email %>
-                </span>
-            </div>
-            <hr />
-            <div class="contact-details clearfix">
-                <span class="contact-details-heading float-left">
-                    company
-                </span>
+<br />
 
-                <span class="contact-details-text float-right">
-                    <% if @company %>
-                        <%= link_to @company do %>
-                            <span><%= @company.name %></span>
-                        <% end %>
-                    <% else %>
-                        <span><%= link_to "Add Company", add_contact_company_url(@contact), :class=>"text-secondary contact-details-text" %></span>
-                    <% end %>
-                </span>
-            </div>
-        </div>
+<div id="contact-details" class="contact-details-container">
+    <span class="clearfix contact-details">
+        <span class="contact-details-heading float-left">
+            phone
+        </span>
+        <span class="contact-details-text float-right">
+            <%= @contact.phone %>
+        </span>
+    </span>
 
-        <div id="contact-links">
-            <%= link_to "Edit", edit_contact_url(@contact), :class=>"mr-3 contact-info-link" %>
-            <%= link_to "Delete", contact_url(@contact), method: :delete, :class=>"contact-info-link"%>
-        </div>
+    <hr />
+
+    <div class="contact-details clearfix">
+        <span class="contact-details-heading float-left">
+            email
+        </span>
+        <span class="contact-details-text float-right">
+            <%= @contact.email %>
+        </span>
+    </div>
+
+    <hr />
+
+    <div class="contact-details clearfix">
+        <span class="contact-details-heading float-left">
+            company
+        </span>
+
+        <span class="contact-details-text float-right">
+            <% if @company %>
+                <%= link_to @company do %>
+                    <span><%= @company.name %></span>
+                <% end %>
+            <% else %>
+                <span><%= link_to "Add Company", add_contact_company_url(@contact), :class=>"text-secondary contact-details-text" %></span>
+            <% end %>
+        </span>
     </div>
 </div>

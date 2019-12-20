@@ -1,3 +1,6 @@
 <% @contact.touchpoints.each do |touch|%>
-    <%= touch.description%>
+        <%= link_to [@contact, touch] do %>
+        <p><%= touch.description%></p>
+    <% end %>
+    <hr />
 <% end %>

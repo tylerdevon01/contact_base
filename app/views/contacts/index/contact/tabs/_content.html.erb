@@ -1,12 +1,18 @@
 <div class="tab-content">
     <div id="contact-<%= @contact.id%>-activity-tab-content" class="tab-pane active" role="tabpanel" aria-labelledby="activity-tab">
+        <%= link_to "All", contact_url(@contact)%>
+        <br /><br />
         Activity
     </div>
     <div id="contact-<%= @contact.id%>-touchpoints-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="touchpoints-tab">
+        <%= link_to "+", new_contact_touchpoint_url(@contact)%>
+        <br /><br />
         <%= render "contacts/index/contact/tabs/content/touchpoints.html.erb", locals:{contact: @contact}%>
     </div>
 
     <div id="contact-<%= @contact.id%>-deals-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="deals-tab">
+        <%= link_to "+", new_deal_url%>
+        <br /><br />
         <%= render "contacts/index/contact/tabs/content/deals.html.erb", locals:{contact: @contact}%>
     </div>
     <div id="contact-<%= @contact.id%>-settings-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="settings-tab">
