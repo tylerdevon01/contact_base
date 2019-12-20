@@ -1,6 +1,6 @@
-<div id="contact-<%= @contact.id%>-activity-tab-content" class="tab-content">
-    <div id="<%=@contact%>_activity" class="tab-pane active" role="tabpanel" aria-labelledby="activity-tab">
-        ...
+<div class="tab-content">
+    <div id="contact-<%= @contact.id%>-activity-tab-content" class="tab-pane active" role="tabpanel" aria-labelledby="activity-tab">
+        Activity
     </div>
     <div id="contact-<%= @contact.id%>-touchpoints-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="touchpoints-tab">
         <%= render "contacts/index/contact/tabs/content/touchpoints.html.erb", locals:{contact: @contact}%>
@@ -10,6 +10,6 @@
         <%= render "contacts/index/contact/tabs/content/deals.html.erb", locals:{contact: @contact}%>
     </div>
     <div id="contact-<%= @contact.id%>-settings-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="settings-tab">
-        ...
+        Settings
     </div>
 </div>

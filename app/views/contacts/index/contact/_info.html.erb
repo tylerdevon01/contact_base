@@ -1,11 +1,12 @@
-<div class="container mb-5 p-5">
+<div class="container p-5">
     <div class="mx-auto w-75">
         <div id="contact-header">
             <h3> <%= @contact.name %> </h3>
             <span class="badge badge-primary"><%= get_label_text(@contact.label)%></span><!-- FOR SAME LINE BADGE - DIV: class="d-flex" style="align-items: center;" -->
         </div>
         <br />
-
+        <%= render "contacts/index/contact/tabs/tabs.html.erb", locals:{contact:@contact}%>
+        <br />
         <div id="contact-details" class="contact-details-container mb-5">
             <span class="clearfix contact-details">
                 <span class="contact-details-heading float-left">
@@ -48,7 +49,5 @@
             <%= link_to "Edit", edit_contact_url(@contact), :class=>"mr-3 contact-info-link" %>
             <%= link_to "Delete", contact_url(@contact), method: :delete, :class=>"contact-info-link"%>
         </div>
-
-        <br />
     </div>
 </div>

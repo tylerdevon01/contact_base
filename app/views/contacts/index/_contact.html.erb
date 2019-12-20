@@ -2,7 +2,10 @@
     <% @contact = Contact.find_by(id: contact.id) %>
     <div id="<%=contact.id%>-info" class="contact-info">
         <%= render "contacts/index/contact/info.html.erb", :locals=>{contact: @contact}%>
-        <%= render "contacts/index/contact/tabs/tabs.html.erb", locals:{contact:@contact}%>
-        <%= render "contacts/index/contact/tabs/content.html.erb", locals:{contact:@contact}%>
+        <div class="container mb-5 p-5">
+            <div class="mx-auto w-75">
+                <%= render "contacts/index/contact/tabs/content.html.erb", locals:{contact:@contact}%>
+            </div>
+        </div>
     </div>
 <% end %>

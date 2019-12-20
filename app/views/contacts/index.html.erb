@@ -3,6 +3,7 @@
         <div class="mb-3">
             <%= render "contacts/index/search.html.erb"%>
         </div>
+
         <%= render @contacts %>
 
         <div class="mt-5">
@@ -18,6 +19,7 @@
         <%= render "contacts/index/contact.html.erb", locals:{contacts: @contacts} %>
     </div>
 </div>
+
 
 <script>
     $(".contact-info").hide()
@@ -62,6 +64,6 @@
         $(".tab-pane").hide()
     }
     show_first_tab_content = function(id){
-        $(`#contact-${id}-activity-tab-content`).find(".tab-pane:first").active
+        $(`#contact-${id}-activity-tab-content`).show()
     }
 </script>
