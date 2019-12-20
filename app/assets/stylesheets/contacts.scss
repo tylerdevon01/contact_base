@@ -5,3 +5,61 @@
 #contact a, a:hover {
     text-decoration: none;
 }
+
+.contact-info{
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.contact-details-text{
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
+    text-rendering: optimizeLegibility !important;
+    line-height: 1.2 !important;
+    padding-bottom: .65em;
+    padding-top: .65em;
+}
+.contact-details-heading{
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
+    color: #595959;
+    text-rendering: optimizeLegibility !important;
+    line-height: 1.2 !important;
+    padding-bottom: .65em;
+    padding-top: .65em;
+}
+
+.contact-info-link{
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #595959;
+    text-decoration: none;
+    text-rendering: optimizeLegibility !important;
+    line-height: 1.2 !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
+}
+.contact-info-link:hover{
+    text-decoration: none;
+}
+
+hr{
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important;
+}
+
+
+#contact-info-nav{
+}
+
+.contact-info-item{
+}
+
+.contact-info-nav-link{
+    color: #595959 !important;
+}
+
+.contact-info-nav-link.active {
+    background-color: #fafafa !important;
+    color: #595959 !important;
+}

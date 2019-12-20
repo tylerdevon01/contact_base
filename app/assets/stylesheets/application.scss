@@ -13,9 +13,66 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+}
+
 body {
     overflow-x: hidden;
 }
+
+/* FONTS */
+
+h1 {
+    font-size: 29px !important;
+    font-weight: 300 !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+h2{
+    font-size: 29px !important;
+    font-weight: 300 !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+h3{
+    font-size: 24px !important;
+    font-weight: 300 !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+h4{
+    font-size: 21px !important;
+    font-weight: 600 !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+p{
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
+    text-rendering: optimizeLegibility !important;
+    line-height: 1.2 !important;
+    color: #333333;
+}
+
+a{
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+.contact-link{
+    font-size: 15px !important;
+    line-height: 1.2;
+    font-weight: 400 !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
+    text-rendering: optimizeLegibility !important;
+}
+
 
 
 #sidebar-wrapper {

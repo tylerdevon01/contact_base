@@ -1,7 +1,7 @@
 <div id="contact-index-wrapper" class="row">
-    <div class="col-md-4 px-4 py-3">
+    <div class="col-lg px-4 py-3">
         <div class="mb-3">
-            <%= render "search.html.erb"%>
+            <%= render "contacts/index/search.html.erb"%>
         </div>
         <%= render @contacts %>
 
@@ -13,23 +13,26 @@
             <%= link_to "+", new_contact_url, :class=>"btn-sm btn-light" %>
         </div>
     </div>
-    <div id="contact-info-col" class="col-md border-left p-3">
-        <% @contacts.each do |contact|%>
-            <% @contact = Contact.find_by(id: contact.id) %>
-            
-            <div id="<%=contact.id%>-info" class="contact-info">
-                <%= render "contact_info.html.erb", :locals=>{contact: @contact}%>
-            </div>
 
-        <% end %>
+    <div id="contact-info-col" class="col-lg-8 border-left p-3">
+        <%= render "contacts/index/contact.html.erb", locals:{contacts: @contacts} %>
     </div>
 </div>
 
 <script>
     $(".contact-info").hide()
+
     $(".contact-link").click(function(event){
-        style_contact_link(event.target.id)
-        toggle_contact_info(event.target.id)
+        current_contact = event.target.id
+
+        style_contact_link(current_contact)
+        toggle_contact_info(current_contact)
+
+        remove_active_tabs(current_contact)
+        make_first_tab_active(current_contact)
+
+        hide_all_tab_content(current_contact)
+        show_first_tab_content(current_contact)
     });
 
     style_contact_link = function(t){
@@ -37,9 +40,28 @@
         $(`#${t}`).removeClass("text-dark")
         $(`#${t}`).addClass("text-secondary")
     }
-    
+
+    $(".contact-info-nav-link").click(function(event){
+        $(".contact-info-nav-link").removeClass("active")
+        $(`#${event.target.id}`).addClass("active")
+        $(".tab-pane").hide()
+        $(`#${event.target.id}-content`).show()
+    })
+
     toggle_contact_info = function(t){
         $(".contact-info").hide()
         $(`#${event.target.id}-info`).show()
+    }
+    remove_active_tabs = function(id){
+        $(`.contact-${id}-tab-link`).removeClass("active")
+    }
+    make_first_tab_active = function(id){
+        $(`#contact-${id}-tabs`).find("a:first").addClass("active")
+    }
+    hide_all_tab_content = function(){
+        $(".tab-pane").hide()
+    }
+    show_first_tab_content = function(id){
+        $(`#contact-${id}-activity-tab-content`).find(".tab-pane:first").active
     }
 </script>

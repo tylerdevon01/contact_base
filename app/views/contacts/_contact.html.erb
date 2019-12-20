@@ -1,6 +1,7 @@
 <div class="my-2 contact-link" id="<%=contact.id%>">
-        <strong id="<%=contact.id%>"> <%= contact.name %></strong>
-        <% if contact.company %>
-            <small id="<%=contact.id%>" class="ml-2 text-secondary"><%= contact.company.name %></small>
-        <%end%>
+        <span id="<%=contact.id%>"> <%= contact.name %>
+            <% if contact.company %>
+                <small id="<%=contact.id%>" class="ml-2 text-secondary"><%= contact.company.name %></small>
+            <%end%>
+        </span>
 </div>

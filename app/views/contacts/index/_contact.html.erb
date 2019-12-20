@@ -1,0 +1,8 @@
+<% @contacts.each do |contact|%>
+    <% @contact = Contact.find_by(id: contact.id) %>
+    <div id="<%=contact.id%>-info" class="contact-info">
+        <%= render "contacts/index/contact/info.html.erb", :locals=>{contact: @contact}%>
+        <%= render "contacts/index/contact/tabs/tabs.html.erb", locals:{contact:@contact}%>
+        <%= render "contacts/index/contact/tabs/content.html.erb", locals:{contact:@contact}%>
+    </div>
+<% end %>
