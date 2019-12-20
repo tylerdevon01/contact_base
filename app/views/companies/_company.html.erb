@@ -1,5 +1,17 @@
-<div id="contact">
-    <%= link_to company do %>
-    <strong class="text-dark"> <%= company.name %></strong>
-    <%end%>
+<div class="my-2 company-link" id="<%=company.id%>">
+        <span id="<%=company.id%>"> <%= company.name %>
+        </span>
 </div>
+
+
+
+            <%
+=begin%>
+ <% if company.contacts %>
+                <% company.contacts.each do |contact|%>
+                    <small id="<%=contact.id%>" class="ml-2 text-secondary"><%= contact.name %></small>
+                <% end %>
+            <%end%> 
+<%
+=end%>
+<% # end %>

@@ -6,6 +6,14 @@
     text-decoration: none;
 }
 
+.contact-link{
+    font-size: 15px !important;
+    line-height: 1.2;
+    font-weight: 400 !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
+    text-rendering: optimizeLegibility !important;
+}
+
 .contact-info{
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
@@ -46,13 +54,6 @@
 hr{
     margin-top: 0rem !important;
     margin-bottom: 0rem !important;
-}
-
-
-#contact-info-nav{
-}
-
-.contact-info-item{
 }
 
 .contact-info-nav-link{
