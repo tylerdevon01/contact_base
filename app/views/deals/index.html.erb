@@ -1,3 +1,10 @@
+<% content_for :page_links do %>
+    <%=link_to "All", contacts_url, :class => "list-group-item list-group-item-action bg-light" %>
+    <%=link_to "Recent", contacts_url, :class => "list-group-item list-group-item-action bg-light" %>
+    <%=link_to "Active", contacts_url, :class => "list-group-item list-group-item-action bg-light" %>
+    <%=link_to "Closed", contacts_url, :class => "list-group-item list-group-item-action bg-light" %>
+<% end %>
+
 <div id="deal-index-wrapper" class="row">
     <div class="col-lg px-5 py-4">
         <div class="mb-3">

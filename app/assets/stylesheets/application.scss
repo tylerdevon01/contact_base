@@ -65,8 +65,13 @@ a{
     text-rendering: optimizeLegibility !important;
 }
 
+.nav-link{
+    color: rgba(0, 0, 0, 0.5);
 
-#sidebar-wrapper {
+}
+
+
+#sidebar-wrapper{
     min-height: 100vh;
     margin-left: -15rem;
     -webkit-transition: margin .25s ease-out;
@@ -80,8 +85,17 @@ a{
     font-size: 1.2rem;
 }
 
+#navbar .navbar-heading{
+    padding: 0.875rem 1.89rem;
+    font-size: 1.2rem;
+}
+
+#navbar{
+    height: 3.55em;
+}
+
 #sidebar-wrapper .list-group {
-    width: 15rem;
+    width: 12rem;
 }
 
 #page-content-wrapper {
@@ -91,7 +105,7 @@ a{
 #main-wrapper.toggled #sidebar-wrapper {
     margin-left: 0;
 }
-  
+
 @media (min-width: 768px) {
     #sidebar-wrapper {
         margin-left: 0;
