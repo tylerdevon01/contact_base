@@ -1,0 +1,48 @@
+<div id="top-contact-info">   
+    <div id="contact-header">
+        <h3> <%= contact.name %> </h3>
+        <span class="badge badge-primary"><%= get_label_text(contact.label)%></span>
+    </div>
+
+    <br />
+
+    <div id="contact-details" class="contact-details-container">
+        <span class="clearfix contact-details">
+            <span class="contact-details-heading float-left">
+                phone
+            </span>
+            <span class="contact-details-text float-right">
+                <%= contact.phone %>
+            </span>
+        </span>
+
+        <hr />
+
+        <div class="contact-details clearfix">
+            <span class="contact-details-heading float-left">
+                email
+            </span>
+            <span class="contact-details-text float-right">
+                <%= contact.email %>
+            </span>
+        </div>
+
+        <hr />
+
+        <div class="contact-details clearfix">
+            <span class="contact-details-heading float-left">
+                company
+            </span>
+            <span class="contact-details-text float-right">
+                <% if contact.company %>
+                    <%= link_to contact.company do %>
+                        <span><%= contact.company.name %></span>
+                    <% end %>
+                <% else %>
+                    <span><%= link_to "Add Company", add_contact_company_url(contact), :class=>"text-secondary contact-details-text" %></span>
+                <% end %>
+            </span>
+        </div>
+        
+    </div>
+</div>

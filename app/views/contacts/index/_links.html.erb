@@ -1,0 +1,10 @@
+<div class="contact-footer">
+    <div class="contact-add">
+        <%= link_to "+", new_contact_url, :class=>"btn-sm btn-light" %>
+    </div>
+
+    <div class="contact-links">
+        <%= link_to "Edit", edit_contact_url(contact), :class=>"mr-3 contact-info-link" %>
+        <%= link_to "Delete", contact_url(contact), method: :delete, :class=>"contact-info-link"%>
+    </div>
+</div>
