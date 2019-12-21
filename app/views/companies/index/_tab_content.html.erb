@@ -1,0 +1,30 @@
+<div class="tab-content">
+    <div id="company-<%= company.id%>-activity-tab-content" class="tab-pane active" role="tabpanel" aria-labelledby="activity-tab">
+        <%= link_to "All", company_url(company)%>
+        <br /><br />
+
+        Activity
+    </div>
+
+    <div id="company-<%= company.id%>-touchpoints-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="touchpoints-tab">
+        <%= link_to "+", new_company_url(company)%>
+        <br /><br />
+        *Touchpoints
+    </div>
+
+    <div id="company-<%= company.id%>-deals-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="deals-tab">
+        <%= link_to "+", new_deal_url%>
+        <br /><br />
+        
+        <% company.deals.each do |deal|%>
+            <%= link_to deal do %>
+                <p><%= deal.title%></p>
+            <% end %>
+            <hr />
+        <% end %>
+    </div>
+
+    <div id="company-<%= company.id%>-settings-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="settings-tab">
+        Settings
+    </div>
+</div>

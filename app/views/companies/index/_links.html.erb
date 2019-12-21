@@ -1,0 +1,10 @@
+<div class="company-footer">
+    <div class="company-add">
+        <%= link_to "+", new_company_url, :class=>"btn-sm btn-light" %>
+    </div>
+
+    <div class="company-links">
+        <%= link_to "Edit", edit_company_url(company), :class=>"mr-3 company-info-link" %>
+        <%= link_to "Delete", company_url(company), method: :delete, :class=>"company-info-link"%>
+    </div>
+</div>

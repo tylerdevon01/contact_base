@@ -1,150 +1,17 @@
 <div id="company-index-wrapper" class="row">
     <div class="col-lg px-5 py-4">
         <div class="mb-3">
-            <!-- SEARCH -->
             <%= form_tag companies_path, method: :get do %>
-                <div class="">
-                    <div class="form-group">
-                        <%= text_field_tag :search, params[:search], :class=>"form-control form-control-sm", :placeholder=>"Search for a company"%>
-                    </div>
+                <div class="form-group">
+                    <%= text_field_tag :search, params[:search], :class=>"form-control form-control-sm", :placeholder=>"Search for a company"%>
                 </div>
             <% end %>
         </div>
-        <!-- LEFT company EXPLORER -->
         <%= render @companys %>
     </div>
 
-    <!-- RIGHT CONTENT COL -->
-    <div id="company-info-col" class="col-lg-7 border-left px-5 pt-5">
-        <% @companys.each do |company|%>
-            <% @company = Company.find_by(id: company.id) %>
-
-            <!-- CONTENT CONTAINER -->
-            <div id="<%=company.id%>-info" class="company-info containter px-5">
-                <div id="top-company-info">   
-                    <div id="company-header">
-                        <h3> <%= @company.name %> </h3>
-                    </div>
-                    <br />
-                    <div id="company-details" class="company-details-container">
-                        <span class="clearfix company-details">
-                            <span class="company-details-heading float-left">
-                                phone
-                            </span>
-                            <span class="company-details-text float-right">
-                                <%= @company.phone %>
-                            </span>
-                        </span>
-
-                        <hr />
-
-                        <div class="company-details clearfix">
-                            <span class="company-details-heading float-left">
-                                email
-                            </span>
-                            <span class="company-details-text float-right">
-                                <%# @company.email %>
-                            </span>
-                        </div>
-
-                        <hr />
-
-                        <div class="company-details clearfix">
-                            <span class="company-details-heading float-left">
-                                company
-                            </span>
-
-                            <span class="company-details-text float-right">
-                                <% if @company %>
-                                    <%= link_to @company do %>
-                                        <%= @company.name %>
-                                    <% end %>
-                                <% else %>
-                                    <span><%= link_to "Add Company", add_company_url(@company), :class=>"text-secondary company-details-text" %></span>
-                                <% end %>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <br /><br />
-
-                <!-- TABS -->
-                <div id="tabs">
-                    <ul class="nav nav-pills" id="company-<%= @company.id%>-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="company-<%= @company.id%>-tab-link nav-link active company-info-nav-link" id="company-<%= @company.id%>-activity-tab" data-toggle="tab" href="#activity" role="tab" aria-controls="activity" aria-selected="true">Activity</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="company-<%= @company.id%>-tab-link nav-link company-info-nav-link" id="company-<%= @company.id%>-touchpoints-tab" data-toggle="tab" href="#touchpoints" role="tab" aria-controls="touchpoints" aria-selected="false">Touchpoints</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="company-<%= @company.id%>-tab-link nav-link company-info-nav-link" id="company-<%= @company.id%>-deals-tab" data-toggle="tab" href="#deals" role="tab" aria-controls="deals" aria-selected="false">Deals</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="company-<%= @company.id%>-tab-link nav-link company-info-nav-link" id="company-<%= @company.id%>-settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
-                        </li>
-                    </ul>
-                </div>
-                <br />
-
-                <!-- TAB CONTENT -->
-                <div class="tab-content">
-
-                    <div id="company-<%= @company.id%>-activity-tab-content" class="tab-pane active" role="tabpanel" aria-labelledby="activity-tab">
-                        <%= link_to "All", company_url(@company)%>
-                        <br /><br />
-                        Activity
-                    </div>
-
-                    <%
-=begin%>
- <div id="company-<%= @company.id%>-touchpoints-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="touchpoints-tab">
-                        <%= link_to "+", new_company_touchpoint_url(@company)%>
-                        <br /><br />
-                        <% @company.touchpoints.each do |touch|%>
-                                <%= link_to [@company, touch] do %>
-                                <p><%= touch.description%></p>
-                            <% end %>
-                            <hr />
-                        <% end %>
-                    </div> 
-<%
-=end%>
-
-                    <div id="company-<%= @company.id%>-deals-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="deals-tab">
-                        <%= link_to "+", new_deal_url%>
-                        <br /><br />
-                        <% @company.deals.each do |deal|%>
-                            <%= link_to deal do %>
-                                <p><%= deal.title%></p>
-                            <% end %>
-                            <hr />
-                        <% end %>
-                    </div>
-
-                    <div id="company-<%= @company.id%>-settings-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="settings-tab">
-                        Settings
-                    </div>
-                </div>
-
-                
-                <!-- BOTTOM ADD/EDIT/DELETE LINKS -->
-                <div class="company-footer">
-                    <div class="company-add">
-                        <%= link_to "+", new_company_url, :class=>"btn-sm btn-light" %>
-                    </div>
-
-                    <div class="company-links">
-                        <%= link_to "Edit", edit_company_url(company), :class=>"mr-3 company-info-link" %>
-                        <%= link_to "Delete", company_url(company), method: :delete, :class=>"company-info-link"%>
-                    </div>
-                </div>
-
-            </div>
-        <% end %>
+    <div id="contact-info-col" class="col-lg-7 border-left px-5 pt-5">
+        <%= render partial: "companies/index/company", collection: @companys, as: :company%>
     </div>
 </div>
 
