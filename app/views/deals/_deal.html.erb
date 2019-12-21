@@ -1,0 +1,7 @@
+<div class="my-2 deal-link" id="<%=deal.id%>">
+        <span id="<%=deal.id%>"> <%= deal.title %>
+            <% if deal.company %>
+                <small id="<%=deal.id%>" class="ml-2 text-secondary"><%= deal.company.name %></small>
+            <%end%>
+        </span>
+</div>

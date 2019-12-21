@@ -1,4 +1,6 @@
-<div class="container p-5">
+<%
+=begin%>
+ <div class="container p-5">
     <div class="clearfix">
         <div class="float-left">
             <h3> Deals </h3>
@@ -18,4 +20,206 @@
     <% end %>
     <br />
     <!-- LINKS -->
+</div> 
+<%
+=end%>
+
+<div id="deal-index-wrapper" class="row">
+    <div class="col-lg px-5 py-4">
+        <div class="mb-3">
+            <!-- SEARCH -->
+            <%= form_tag deals_path, method: :get do %>
+                <div class="">
+                    <div class="form-group">
+                        <%= text_field_tag :search, params[:search], :class=>"form-control form-control-sm", :placeholder=>"Search for a deal"%>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <!-- LEFT deal EXPLORER -->
+        <%= render @deals %>
+    </div>
+
+    <!-- RIGHT CONTENT COL -->
+    <div id="deal-info-col" class="col-lg-8 border-left px-5 pt-5">
+        <% @deals.each do |deal|%>
+            <% @deal = Deal.find_by(id: deal.id) %>
+
+            <!-- CONTENT CONTAINER -->
+            <div id="<%=deal.id%>-info" class="deal-info containter px-5">
+                <div id="top-deal-info">   
+                    <div id="deal-header">
+                        <h3> <%= @deal.title %> </h3>
+                        <span class="badge badge-primary"><%= get_label_text(@deal.label)%></span><!-- FOR SAME LINE BADGE - DIV: class="d-flex" style="align-items: center;" -->
+                    </div>
+                    <br />
+                    <div id="deal-details" class="deal-details-container">
+                        <span class="clearfix deal-details">
+                            <span class="deal-details-heading float-left">
+                                phone
+                            </span>
+                            <span class="deal-details-text float-right">
+<%# @deal.phone %>
+                                n/a
+                            </span>
+                        </span>
+
+                        <hr />
+
+                        <div class="deal-details clearfix">
+                            <span class="deal-details-heading float-left">
+                                email
+                            </span>
+                            <span class="deal-details-text float-right">
+<%# @deal.email %>
+                                n/a
+                            </span>
+                        </div>
+
+                        <hr />
+
+                        <div class="deal-details clearfix">
+                            <span class="deal-details-heading float-left">
+                                company
+                            </span>
+
+                            <span class="deal-details-text float-right">
+                                <% if @company %>
+                                    <%= link_to @company do %>
+                                        <span><%= @company.name %></span>
+                                    <% end %>
+                                <% else %>
+                                    <span><%= link_to "Add Company", add_deal_company_url(@deal), :class=>"text-secondary deal-details-text" %></span>
+                                <% end %>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <br /><br />
+
+                <!-- TABS -->
+                <div id="tabs">
+                    <ul class="nav nav-pills" id="deal-<%= @deal.id%>-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="deal-<%= @deal.id%>-tab-link nav-link active deal-info-nav-link" id="deal-<%= @deal.id%>-activity-tab" data-toggle="tab" href="#activity" role="tab" aria-controls="activity" aria-selected="true">Activity</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="deal-<%= @deal.id%>-tab-link nav-link deal-info-nav-link" id="deal-<%= @deal.id%>-touchpoints-tab" data-toggle="tab" href="#touchpoints" role="tab" aria-controls="touchpoints" aria-selected="false">Touchpoints</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="deal-<%= @deal.id%>-tab-link nav-link deal-info-nav-link" id="deal-<%= @deal.id%>-deals-tab" data-toggle="tab" href="#deals" role="tab" aria-controls="deals" aria-selected="false">Deals</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="deal-<%= @deal.id%>-tab-link nav-link deal-info-nav-link" id="deal-<%= @deal.id%>-settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
+                        </li>
+                    </ul>
+                </div>
+                <br />
+
+                <!-- TAB CONTENT -->
+                <div class="tab-content">
+
+                    <div id="deal-<%= @deal.id%>-activity-tab-content" class="tab-pane active" role="tabpanel" aria-labelledby="activity-tab">
+                        <%= link_to "All", deal_url(@deal)%>
+                        <br /><br />
+                        Activity
+                    </div>
+
+                    <div id="deal-<%= @deal.id%>-touchpoints-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="touchpoints-tab">
+<%= link_to "+", new_deal_url%>
+                        <br /><br />
+                        <%# @deal.touchpoints.each do |touch|%>
+                                <%# link_to [@deal, touch] do %>
+                                <%# touch.description%>
+                            <%# end %>
+                            <hr />
+                        <%#end %>
+                    </div>
+<%
+=begin%>
+ 
+                    <div id="deal-<%= @deal.id%>-deals-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="deals-tab">
+                        <%= link_to "+", new_deal_url%>
+                        <br /><br />
+                        <% @deal.deals.each do |deal|%>
+                            <%= link_to deal do %>
+                                <p><%= deal.title%></p>
+                            <% end %>
+                            <hr />
+                        <% end %>
+                    </div> 
+<%
+=end%>
+
+                    <div id="deal-<%= @deal.id%>-settings-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="settings-tab">
+                        Settings
+                    </div>
+                </div>
+
+                
+                <!-- BOTTOM ADD/EDIT/DELETE LINKS -->
+                <div class="deal-footer">
+                    <div class="deal-add">
+                        <%= link_to "+", new_deal_url, :class=>"btn-sm btn-light" %>
+                    </div>
+
+                    <div class="deal-links">
+                        <%= link_to "Edit", edit_deal_url(deal), :class=>"mr-3 deal-info-link" %>
+                        <%= link_to "Delete", deal_url(deal), method: :delete, :class=>"deal-info-link"%>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
 </div>
+
+
+<script>
+    $(".deal-info").hide()
+
+    $(".deal-link").click(function(event){
+        current_deal = event.target.id
+
+        style_deal_link(current_deal)
+        toggle_deal_info(current_deal)
+
+        remove_active_tabs(current_deal)
+        make_first_tab_active(current_deal)
+
+        hide_all_tab_content(current_deal)
+        show_first_tab_content(current_deal)
+    });
+
+    style_deal_link = function(t){
+        $(".deal-link").removeClass("text-secondary")
+        $(`#${t}`).removeClass("text-dark")
+        $(`#${t}`).addClass("text-secondary")
+    }
+
+    $(".deal-info-nav-link").click(function(event){
+        $(".deal-info-nav-link").removeClass("active")
+        $(`#${event.target.id}`).addClass("active")
+        $(".tab-pane").hide()
+        $(`#${event.target.id}-content`).show()
+    })
+
+    toggle_deal_info = function(t){
+        $(".deal-info").hide()
+        $(`#${event.target.id}-info`).show()
+    }
+    remove_active_tabs = function(id){
+        $(`.deal-${id}-tab-link`).removeClass("active")
+    }
+    make_first_tab_active = function(id){
+        $(`#deal-${id}-tabs`).find("a:first").addClass("active")
+    }
+    hide_all_tab_content = function(){
+        $(".tab-pane").hide()
+    }
+    show_first_tab_content = function(id){
+        $(`#deal-${id}-activity-tab-content`).show()
+    }
+</script>
