@@ -1,0 +1,25 @@
+<div class="tab-content">
+    <div id="deal-<%= deal.id%>-activity-tab-content" class="tab-pane active" role="tabpanel" aria-labelledby="activity-tab">
+        <%= link_to "All", deal_url(deal)%>
+        <br /><br />
+
+        Activity
+    </div>
+
+    <div id="deal-<%= deal.id%>-touchpoints-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="touchpoints-tab">
+        <%= link_to "+", new_deal_url(deal)%>
+        <br /><br />
+        *Touchpoints
+    </div>
+
+    <div id="deal-<%= deal.id%>-deals-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="deals-tab">
+        <%= link_to "+", new_deal_url%>
+        <br /><br />
+        
+        *deals?
+    </div>
+
+    <div id="deal-<%= deal.id%>-settings-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="settings-tab">
+        Settings
+    </div>
+</div>
