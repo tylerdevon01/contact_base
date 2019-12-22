@@ -1,8 +1,7 @@
 <% if user_signed_in? and !current_page?(controller:"home", action:"index")%>
     <% if content_for? :page_links%>
-        <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">ContactBase </div>
-            <div class="list-group list-group-flush">
+        <div class="" id="">
+            <div class="">
                 <%= yield :page_links %>
             </div>
         </div>

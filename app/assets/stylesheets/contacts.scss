@@ -14,10 +14,6 @@
     text-rendering: optimizeLegibility !important;
 }
 
-.contact-info{
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
 .contact-details-text{
     font-size: 14px !important;
     font-weight: 400 !important;
@@ -61,7 +57,7 @@ hr{
 }
 
 .contact-info-nav-link.active {
-    background-color: #fafafa !important;
+    background-color: none !important;
     color: #595959 !important;
 }
 

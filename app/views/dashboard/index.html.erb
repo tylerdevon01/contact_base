@@ -1,4 +1,58 @@
-<div class="container p-5">
+<%
+=begin%>
+ <div class="container p-5">
     <h3> Dashboard </h3>
     <hr />
 </div>
+ 
+<%
+=end%>
+    <%
+=begin%>
+ <div id="" i_d="main-wrapper" class="" c="d-block">
+      <div id="" i_d="page-content-wrapper">
+        <div id="" i_d="main-content" class="" c="container-fluid"">
+          <% if notice %>
+            <p class="notice"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert"><%= alert %></p>
+          <% end %>
+          <%= render 'shared/sidebar.html.erb'%>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html> 
+<%
+=end%>
+
+<% content_for :page_links do %>
+    <%=link_to "All", contacts_url, :class => "list-group-item list-group-item-action bg-light" %>
+    <%=link_to "Recent", contacts_url, :class => "list-group-item list-group-item-action bg-light" %>
+    <%=link_to "Leads", contacts_url, :class => "list-group-item list-group-item-action bg-light" %>
+    <%=link_to "Referals", contacts_url, :class => "list-group-item list-group-item-action bg-light" %>
+    <%=link_to "Oppurtunities", contacts_url, :class => "list-group-item list-group-item-action bg-light" %>
+    <%=link_to "Active Deals", contacts_url, :class => "list-group-item list-group-item-action bg-light" %>
+    <%=link_to "Customers", contacts_url, :class => "list-group-item list-group-item-action bg-light" %>
+<% end %>
+
+<%
+=begin%>
+ <div id="main">
+    <div id="top" class="navbar nav">
+        I am top
+    </div>
+    <div id="mid">
+        <div id="side">
+            <%= render 'shared/sidebar.html.erb'%>
+        </div>
+        <div id="content">
+            <%= yield %>
+        </div>
+    </div>
+</div> 
+<%
+=end%>
+<% # end %>
