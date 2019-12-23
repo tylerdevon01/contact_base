@@ -1,6 +1,8 @@
 <div id="top-contact-info" class="container">   
     <div id="contact-header">
-        <h3> <%= contact.name %> </h3>
+        <%= link_to contact do %>
+            <h3> <%= contact.name %> </h3>
+        <% end %>
         <span class="badge badge-primary"><%= get_label_text(contact.label)%></span>
     </div>
 

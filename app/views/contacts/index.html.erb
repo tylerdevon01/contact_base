@@ -10,6 +10,7 @@
 
 <div id="contact-index-wrapper" class="row">
     <div class="col-lg-5 px-5 py-5">
+
         <!-- Search -->
         <div class="mb-3">
             <%= form_tag contacts_path, method: :get do %>
@@ -18,7 +19,7 @@
                 </div>
             <% end %>
         </div>
-        <!-- Contact List -->
+
         <%= render @contacts %>
     </div>
 

@@ -40,6 +40,36 @@ class TouchpointsController < ApplicationController
         @touchpoint.destroy
         redirect_to @contact
     end
+    def add_call
+        @contact = current_user.contacts.find_by(id:params[:id])
+        @touchpoint = @contact.touchpoints.build
+    end
+    def add_email
+        @contact = current_user.contacts.find_by(id:params[:id])
+        @touchpoint = @contact.touchpoints.build
+    end
+    def add_meeting
+        @contact = current_user.contacts.find_by(id:params[:id])
+        @touchpoint = @contact.touchpoints.build
+    end
+
+    # REFACTOR TO SEND W PARAMS, USE ONE CONTROLLER/VIEW
+    def show_calls
+        @contact = current_user.contacts.find_by(id:params[:id])
+        @calls = @contact.touchpoints.where(interaction_type: 1)
+    end
+    def show_emails
+        @contact = current_user.contacts.find_by(id:params[:id])
+        @emails = @contact.touchpoints.where(interaction_type: 2)
+    end
+    def show_meetings
+        @contact = current_user.contacts.find_by(id:params[:id])
+        @meetings = @contact.touchpoints.where(interaction_type: 3)
+    end
+    def show_activity
+        @contact = current_user.contacts.find_by(id:params[:id])
+        @touchpoints = @contact.touchpoints.all
+    end
 
 private
     def get_contact
@@ -52,6 +82,6 @@ private
         target.user = current_user
     end
     def touchpoint_params
-        params.require(:touchpoint).permit(:description, :contact_id)
+        params.require(:touchpoint).permit(:description, :interaction_type, :contact_id)
     end
 end

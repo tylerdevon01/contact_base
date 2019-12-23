@@ -1,3 +1,21 @@
 // Place all the styles related to the Touchpoints controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.activity-heading{
+    font-size: 17px;
+    margin-left:0em; 
+    padding-right:0em; 
+    padding-left: 0em;
+    color:#333;
+    text-rendering: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #999;
+    font-size: 15px;
+    font-weight: 500;
+    min-height: 100%;
+    line-height: 27px;
+    letter-spacing: 1px;
+    -webkit-font-smoothing: antialiased;
+    flex: 0 0 100px;
+}

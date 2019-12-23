@@ -2,6 +2,7 @@
     <h3> <%= @contact.name %> Touchpoints</h3>
     <hr />
     <%=link_to "New Touchpoint", new_contact_touchpoint_url(@contact) %>
+    <%=link_to "New Call", add_touchpoint_call_url(@contact) %>
     <br /><br />
     <% @touchpoints.each do |touchpoint| %>
         <div class="card card-body mb-3">

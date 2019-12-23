@@ -15,9 +15,9 @@
         <div class="form-group">
             <%= f.select :label, [['Lead', 1], ['Prospect', 2], ['Oppurtunity', 3], ['Deal', 4]], {}%>
         </div>
+        <br />
+        <br />
 
-        <br />
-        <br />
         <h4>Edit Company</h4>
         <hr />
             <%= f.collection_radio_buttons :company_id, current_user.companys.all, :id, :name do |box| %>

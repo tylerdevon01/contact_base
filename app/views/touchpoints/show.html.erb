@@ -2,8 +2,9 @@
     <h3> Touchpoint</h3>
     <hr />
 
-    <p class="lead"><%= @touchpoint.contact.name%></p>
-    <p> <%= @touchpoint.description %></p>
+    <p class="lead"><strong>Contact: </strong> <%= @touchpoint.contact.name%></p>
+    <p> <strong>Type: </strong> <%= get_interaction_label(@touchpoint.interaction_type) %></p>
+    <p> <strong>Description: </strong> <%= @touchpoint.description %></p>
 
     <!-- LINKS -->
     <div class="clearfix mt-5">

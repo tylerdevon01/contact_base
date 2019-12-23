@@ -17,7 +17,15 @@ Rails.application.routes.draw do
   resources :contacts do
     resources :touchpoints
   end
-
+  get 'contacts/:id/add_call', to: "touchpoints#add_call", as: :add_contact_call
+  get 'contacts/:id/add_email', to: "touchpoints#add_email", as: :add_contact_email
+  get 'contacts/:id/add_meeting', to: "touchpoints#add_meeting", as: :add_contact_meeting
+  get 'contacts/:id/calls', to: "touchpoints#show_calls", as: :show_contact_calls
+  get 'contacts/:id/emails', to: "touchpoints#show_emails", as: :show_contact_emails
+  get 'contacts/:id/meetings', to: "touchpoints#show_meetings", as: :show_contact_meetings
+  get 'contacts/:id/activity', to: "touchpoints#show_activity", as: :show_contact_activity
+  
+  
   # Pipelines
   resources :pipelines
   get '/pipelines/:id/add_deal', to: "pipelines#add_pipeline_deal", as: :add_pipeline_deal

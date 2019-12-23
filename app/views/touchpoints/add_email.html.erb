@@ -1,0 +1,15 @@
+<div class="container p-5 w-50 mx-auto touchpoint-form">
+    <h2>
+        <%= link_to @contact do %>
+            <%= Contact.find_by(id: params[:id]).name %>
+        <% end %>
+    </h2>
+    <br />
+    <h4> Log Email </h4>
+
+    <%= form_for [@contact, @touchpoint] do |f| %>
+        <%= f.text_area :description, :class=>"form form-control mt-3", :placeholder=>"Description" %>
+        <%= f.hidden_field :interaction_type, :value=>2  %>
+        <%= f.submit "Save", :class=>"btn btn-primary mt-3"%>
+    <% end %>
+</div>

@@ -6,6 +6,13 @@
     text-decoration: none;
 }
 
+.touchpoint-form h2 a{
+    font-size: 27px !important;
+    font-weight: 300 !important;
+    text-rendering: optimizeLegibility !important;
+    text-decoration: none;
+}
+
 .contact-link{
     font-size: 15px !important;
     line-height: 1.2;
@@ -47,11 +54,6 @@
     text-decoration: none;
 }
 
-hr{
-    margin-top: 0rem !important;
-    margin-bottom: 0rem !important;
-}
-
 .contact-info-nav-link{
     color: #595959 !important;
 }
@@ -70,4 +72,61 @@ hr{
     position: absolute;
     bottom: 2em;
     left:6em;
+}
+
+
+// CONTACT -> SHOW -> DETAILS
+
+.detail-heading{
+    font-size: 17px;
+    margin-left:0em; 
+    padding-right:0em; 
+    padding-left: 0em;
+    color:#333;
+    text-rendering: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #999;
+    font-size: 15px;
+    font-weight: 500;
+    min-height: 100%;
+    line-height: 27px;
+    letter-spacing: 1px;
+    -webkit-font-smoothing: antialiased;
+    flex: 0 0 100px;
+}
+
+.detail-text{
+    padding-left:0em;
+    color: #333;
+    font-size: 17px;
+    line-height: 27px;
+    white-space: nowrap;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+    padding-bottom: 1em;
+    flex: 0 0 100px;
+}
+
+.detail-text a{
+    padding-left:0em !important;
+    color: #333 !important;
+    font-size: 17px !important;
+    line-height: 27px !important;
+    white-space: nowrap !important;
+    font-weight: 300 !important;
+    text-rendering: optimizeLegibility !important;
+    padding-bottom: 1em !important;
+    flex: 0 0 100px !important;
+    text-decoration:none;
+}
+
+.detail-seperator{
+    padding-top:.5em;
+    padding-bottom:.5em;
+    width: 10em;
+}
+
+.detail-card{
+    width:20em;
 }

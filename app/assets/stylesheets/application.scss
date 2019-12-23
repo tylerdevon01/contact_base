@@ -30,7 +30,7 @@ h1 {
     text-rendering: optimizeLegibility !important;
 }
 h2{
-    font-size: 29px !important;
+    font-size: 27px !important;
     font-weight: 300 !important;
     text-rendering: optimizeLegibility !important;
 }
@@ -40,9 +40,11 @@ h3{
     text-rendering: optimizeLegibility !important;
 }
 h4{
-    font-size: 21px !important;
-    font-weight: 600 !important;
+    font-size: 17px !important;
+    font-weight: 400 !important;
     text-rendering: optimizeLegibility !important;
+    letter-spacing: .5px;
+    color: #333;
 }
 p{
     font-size: 14px !important;
@@ -106,8 +108,6 @@ a{
     }
 }
 #content{
-    position: absolute;
-    margin-left: 12em;
     width: calc(100vw - 12em);
     overflow-x: hidden;
 }

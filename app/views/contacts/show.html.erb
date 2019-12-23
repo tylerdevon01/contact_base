@@ -1,66 +1,90 @@
-<div class="container mb-5 p-5">
-    <div class="row">
-        <div class="col-lg-4 p-3 mx-3">
-            <div id="contact-header" class="mb-5">
-                <h3> <%= @contact.name %> </h3>
-                <span class="badge badge-primary"><%= get_label_text(@contact.label)%></span><!-- FOR SAME LINE BADGE - DIV: class="d-flex" style="align-items: center;" -->
-            </div>
+<% content_for :page_links do %>
+    <%=link_to "Contact", contact_url(@contact), :class => "nav-link sidebar-item" %>
+    <%=link_to "Activity", show_contact_activity_url, :class => "nav-link sidebar-item" %>
+    <%=link_to "Calls", show_contact_calls_url, :class => "nav-link sidebar-item" %>
+    <%=link_to "Emails", show_contact_emails_url, :class => "nav-link sidebar-item" %>
+    <%=link_to "Meetings", show_contact_meetings_url, :class => "nav-link sidebar-item" %>
+    <%=link_to "Deals", contacts_url, :class => "nav-link sidebar-item" %>
+    <%=link_to "Tasks", contacts_url, :class => "nav-link sidebar-item" %>
+<% end %>
 
-            <div id="contact-details" class="mb-5">
-                <div class="clearfix">
-                    <div class="float-left">
-                        phone
-                    </div>
-                    <div class="float-right">
-                        <%= @contact.phone %>
-                    </div>
-                </div>
-                <hr />
 
-                <div class="clearfix">
-                    <div class="float-left">
-                        email
-                    </div>
-                    <div class="float-right">
-                        <%= @contact.email %>
-                    </div>
-                </div>
-                <hr />
-                <div class="clearfix">
-                    <div class="float-left">
-                        company
-                    </div>
-                    <div class="float-right">
-                        <% if @company %>
-                            <%= link_to @company do %>
-                                <%= @company.name %>
-                            <% end %>
-                        <% else %>
-                            <%= link_to "Add Company", add_contact_company_url(@contact), :class=>"mr-3 text-secondary" %>
-                        <% end %>
+<div class="container p-5 mt-5 w-50 mx-auto">   
+    <div class="row px-3">
+        <%= link_to @contact do %>
+            <h3> <%= @contact.name %> </h3>
+        <% end %>
+    </div>
 
-                    </div>
+    <div class="row mt-3 mb-3 px-3">
+        <%=link_to "Call", add_contact_call_url(@contact), :class=>"mr-3"%>
+        <%=link_to "Email", add_contact_email_url(@contact), :class=>"mr-3"%>
+        <%=link_to "Meet", add_contact_meeting_url(@contact), :class=>"mr-3"%>
+        <%=link_to "Task", contact_url(@contact), :class=>"mr-3"%>
+        <%=link_to "Note", contact_url(@contact), :class=>"mr-3"%>
+    </div>
+    <br />
+
+    <div class="mb-5">
+        <div class="detail-card row">
+            <div class="detail-heading col">Phone</div> 
+            <div class="detail-text col">
+                <%= @contact.phone %>
+                <div class="detail-seperator">
+                    <hr />
                 </div>
             </div>
+        </div>
+        <div class="detail-card row">
+            <div class="detail-heading col">Email</div> 
+            <div class="detail-text col">
+                <%= @contact.email %>
+                <div class="detail-seperator">
+                    <hr />
+                </div>
+            </div>
+        </div>
+        <div class="detail-card row">
+            <div class="detail-heading col">Company</div> 
+            <div class="detail-text col">
+                <% if @contact.company %>
+                    <%= link_to @contact.company do %>
+                        <%= @contact.company.name %>
+                    <% end %>
+                <% else %>
+                    <%= link_to "Add Company", add_contact_company_url(@contact) %></span>
+                <% end %>
+                <div class="detail-seperator">
+                    <hr />
+                </div>
+            </div>
+        </div>
+        <div class="detail-card row">
+            <div class="detail-heading col">Status</div> 
+            <div class="detail-text col">
+                <%= get_label_text(@contact.label)%>
+                <div class="detail-seperator">
+                    <hr />
+                </div>
+            </div>
+        </div>
+        
+    </div>
 
-            <div id="contact-links">
-                <%= link_to "Edit", edit_contact_url(@contact), :class=>"mr-3 text-secondary" %>
-                <%= link_to "Delete", contact_url(@contact), method: :delete, :class=>"text-secondary"%>
-                <%= link_to "Touchpoints", contact_touchpoints_url(@contact), :class => "float-right" %>
-            </div>  
+    <div class="clearfix mt-5">
+        <div class="float-left">
+            <%= link_to "+", new_contact_url, :class=>"contact-info-link" %>
         </div>
 
-        <div class="col-lg p-3 mx-3"> 
-            <h4> Deals </h4>
-            <br />
-            <% if @deals %>
-                <% @deals.each do |deal| %>
-                    <%= link_to deal do %>
-                        <p><%= deal.title %></p>
-                    <% end %>
-                    <hr />
-                <% end %>
-            <% end %>
+        <div class="float-right">
+            <%= link_to "Edit", edit_contact_url(@contact), :class=>"mr-3 contact-info-link" %>
+            <%= link_to "Delete", contact_url(@contact), method: :delete, :class=>"contact-info-link"%>
         </div>
     </div>
 </div>
+
+
+<style>
+
+
+</style>
