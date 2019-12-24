@@ -1,15 +1,5 @@
-<% content_for :page_links do %>
-    <%=link_to "All", contacts_url, :class => "nav-link sidebar-item" %>
-    <%=link_to "Recent", contacts_url, :class => "nav-link sidebar-item" %>
-    <%=link_to "Leads", contacts_url, :class => "nav-link sidebar-item" %>
-    <%=link_to "Referals", contacts_url, :class => "nav-link sidebar-item" %>
-    <%=link_to "Oppurtunities", contacts_url, :class => "nav-link sidebar-item" %>
-    <%=link_to "Active Deals", contacts_url, :class => "nav-link sidebar-item" %>
-    <%=link_to "Customers", contacts_url, :class => "nav-link sidebar-item" %>
-<% end %>
-
 <div id="company-index-wrapper" class="row">
-    <div class="col-lg-5 px-5 py-5">
+    <div class="col-lg-7 px-5 py-5">
         <div class="mb-3">
             <%= form_tag companies_path, method: :get do %>
                 <div class="form-group">

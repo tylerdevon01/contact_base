@@ -1,20 +1,19 @@
 <div class="tab-content container">
     <div id="company-<%= company.id%>-activity-tab-content" class="tab-pane active" role="tabpanel" aria-labelledby="activity-tab">
-        <%= link_to "All", company_url(company)%>
-        <br /><br />
-
-        Activity
+        <%= link_to "+", company_url(company)%>
+        <div class="mb-3"></div>
+        Activity...
     </div>
 
     <div id="company-<%= company.id%>-touchpoints-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="touchpoints-tab">
         <%= link_to "+", new_company_url(company)%>
-        <br /><br />
-        *Touchpoints
+        <div class="mb-3"></div>
+        *Touchpoints...
     </div>
 
     <div id="company-<%= company.id%>-deals-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="deals-tab">
         <%= link_to "+", new_deal_url%>
-        <br /><br />
+        <div class="mb-3"></div>
         
         <% company.deals.each do |deal|%>
             <%= link_to deal do %>
@@ -25,6 +24,7 @@
     </div>
 
     <div id="company-<%= company.id%>-settings-tab-content" class="tab-pane" role="tabpanel" aria-labelledby="settings-tab">
+        <div class="mb-3"></div>
         Settings
     </div>
 </div>

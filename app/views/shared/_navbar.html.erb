@@ -54,7 +54,9 @@
     <div class="navbar-nav mr-auto mt-lg-0 p-2">
         <h3>ClientBase</h3>
     </div>
-    <ul class="navbar-nav ml-auto mt-lg-0">
+    <%
+=begin%>
+ <ul class="navbar-nav ml-auto mt-lg-0">
         <li class="nav-item">
             <%=link_to "Dashboard", dashboard_url, :class => "nav-link" %>
         </li>
@@ -72,7 +74,9 @@
         <li class="nav-item">
             <%=link_to "Pipelines", pipelines_url, :class => "nav-link" %>
         </li>
-    </ul>
+    </ul> 
+<%
+=end%>
     <div class="my-lg-0">
         <% unless user_signed_in? %>
             <div class="nav-item">

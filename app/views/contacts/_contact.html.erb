@@ -1,7 +1,23 @@
-<div class="my-2 contact-link" id="<%=contact.id%>">
-        <span id="<%=contact.id%>"> <%= contact.name %>
+<div class="my-2 contact-link row" id="<%=contact.id%>">
+        <div id="<%=contact.id%>" class="col-4">
+            <span id="<%=contact.id%>"> 
+                <%= link_to contact do %>
+                    <%= contact.name %>
+                <% end %>
+            </span>
+        </div>
+
+        <div id="<%=contact.id%>" class="col-2">
             <% if contact.company %>
-                <small id="<%=contact.id%>" class="ml-2 text-secondary"><%= contact.company.name %></small>
+                <small id="<%=contact.id%>" class="text-secondary"><%= contact.company.name %></small>
             <%end%>
-        </span>
+        </div>
+        
+        <div id="<%=contact.id%>" class="col-3">
+            <small id="<%=contact.id%>" class="text-secondary"> <%= contact.email%> </small>
+        </div>
+
+        <div id="<%=contact.id%>" class="col-3">
+            <small id="<%=contact.id%>" class="text-secondary"> <%= contact.phone%> </small>
+        </div>
 </div>

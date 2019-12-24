@@ -94,7 +94,7 @@ a{
     position: absolute;
     left: 0;
     width: 12em;
-    height: 100vh;
+    //height: 100vh;
     overflow-y: hidden;
     z-index: 1;
     padding-top: 1em;
@@ -108,12 +108,11 @@ a{
     }
 }
 #content{
-    width: calc(100vw - 12em);
-    overflow-x: hidden;
+
 }
 
 #contact-info-col{
-    height: 100vh;
+
 }
 
 #company-info-col{

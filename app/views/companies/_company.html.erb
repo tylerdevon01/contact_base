@@ -1,17 +1,13 @@
-<div class="my-2 company-link" id="<%=company.id%>">
-        <span id="<%=company.id%>"> <%= company.name %>
-        </span>
-</div>
-
-
-
-            <%
-=begin%>
- <% if company.contacts %>
-                <% company.contacts.each do |contact|%>
-                    <small id="<%=contact.id%>" class="ml-2 text-secondary"><%= contact.name %></small>
+<div class="my-2 company-link row" id="<%=company.id%>">
+        <div id="<%=company.id%>" class="col-4">
+            <span id="<%=company.id%>"> 
+                <%= link_to company do %>
+                    <%= company.name %>
                 <% end %>
-            <%end%> 
-<%
-=end%>
-<% # end %>
+            </span>
+        </div>
+
+        <div id="<%=company.id%>" class="col-3">
+            <small id="<%=company.id%>" class="text-secondary"> <%= company.phone%> </small>
+        </div>
+</div>

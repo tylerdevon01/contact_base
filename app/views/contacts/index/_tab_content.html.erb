@@ -1,9 +1,7 @@
 <div class="tab-content container">
     <div id="contact-<%= contact.id%>-activity-tab-content" class="tab-pane active" role="tabpanel" aria-labelledby="activity-tab">
         <%= link_to "+", contact_url(contact)%>
-        <br /><br />
-
-        Activity
+        <div class="mb-3"></div>
         <% contact.touchpoints.each do |touch|%>
                 <%= link_to [contact, touch] do %>
                 <p><%= touch.description%></p>

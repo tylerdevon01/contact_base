@@ -1,19 +1,13 @@
-<% content_for :page_links do %>
-    <%=link_to "Contact", contact_url(@contact), :class => "nav-link sidebar-item" %>
-    <%=link_to "Activity", show_contact_activity_url, :class => "nav-link sidebar-item" %>
-    <%=link_to "Calls", show_contact_calls_url, :class => "nav-link sidebar-item" %>
-    <%=link_to "Emails", show_contact_emails_url, :class => "nav-link sidebar-item" %>
-    <%=link_to "Meetings", show_contact_meetings_url, :class => "nav-link sidebar-item" %>
-    <%=link_to "Deals", contacts_url, :class => "nav-link sidebar-item" %>
-    <%=link_to "Tasks", contacts_url, :class => "nav-link sidebar-item" %>
-<% end %>
-
-
 <div class="container p-5 mx-auto">   
     <div class="row px-3">
-        <%= link_to @contact do %>
-            <h3> <%= @contact.name %> </h3>
+        <%= link_to contacts_url do %>
+            <p> Back to Contacts </p>
         <% end %>
+    </div>
+    
+    
+    <div class="row px-3">
+        <h3> <%= @contact.name %> </h3>
     </div>
 
     <div class="row mt-3 mb-3 px-3">
