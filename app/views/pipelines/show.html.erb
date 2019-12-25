@@ -1,15 +1,16 @@
 <div class="container p-5">
     <div class="row">
-        <div class="col-8">
+        <div class="col-6">
             <h3> <%= @pipeline.title %> </h3>
         </div>
         <div class="col text-right">
             <div class="dropdown">
+                <%=link_to "+", new_deal_url, :class=>"btn btn-secosndary" %>
                 <button class="btn btn-secosndary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Settings
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <%= link_to "Edit Pipeline Deals", add_pipeline_deal_url(@pipeline), :class=>"dropdown-item" %>
+                    <%= link_to "Edit Deals", add_pipeline_deal_url(@pipeline), :class=>"dropdown-item" %>
                     <%= link_to "Edit Pipeline", edit_pipeline_url(@pipeline), :class=>"dropdown-item" %>
                     <%= link_to "Delete", pipeline_url(@pipeline), method: :delete, :class=>"dropdown-item" %>
                 </div>

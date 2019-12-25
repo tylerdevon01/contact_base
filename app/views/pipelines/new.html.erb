@@ -1,6 +1,7 @@
 <div class="container p-5">
     <h3> New Pipeline </h3>
     <hr />
+    <br />
     <%= form_for @pipeline do |f| %>
         <%= f.text_field :title, :class=>"form-control", :placeholder=>"Title"%>
         <%= f.submit "Create", :class=>"btn btn-primary mt-3" %>
