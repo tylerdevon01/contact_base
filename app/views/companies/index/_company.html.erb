@@ -1,6 +1,11 @@
-<div id="<%=company.id%>-info" class="company-info containter px-5">
-    <%= render partial: "/companies/index/details", locals:{company: company}%>
+<div id="<%=company.id%>-info" class="company-info">
+    <%
+=begin%>
+ <%= render partial: "/companies/index/details", locals:{company: company}%>
     <%= render partial: "/companies/index/tabs", locals:{company: company}%>
     <%= render partial: "/companies/index/tab_content", locals:{company: company}%>
-    <%= render partial: "/companies/index/links", locals:{company: company}%>
+    <%= render partial: "/companies/index/links", locals:{company: company}%> 
+<%
+=end%>
+    <%= render partial: "/companies/index/show", locals:{company: company}%> 
 </div>

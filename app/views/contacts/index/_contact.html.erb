@@ -1,7 +1,12 @@
 <div id="<%=contact.id%>-info" class="contact-info">
-    <%= render partial: "/contacts/index/details", locals:{contact: contact}%>
+    <%
+=begin%>
+ <%= render partial: "/contacts/index/details", locals:{contact: contact}%>
     <%= render partial: "/contacts/index/tabs", locals:{contact: contact}%>
     <%= render partial: "/contacts/index/tab_content", locals:{contact: contact}%>
-    <%= render partial: "/contacts/index/links", locals:{contact: contact}%>
+    <%= render partial: "/contacts/index/links", locals:{contact: contact}%> 
+<%
+=end%>
+    <%= render partial: "/contacts/index/show", locals:{contact: contact}%>
 </div>
 
