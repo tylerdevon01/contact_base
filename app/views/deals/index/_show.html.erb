@@ -1,16 +1,16 @@
 <div class="">    
     <div class="row px-3">
-        <%= link_to company do%>
-            <h3> <%= company.name %> </h3>
+        <%= link_to deal do%>
+            <h3> <%= deal.title %> </h3>
         <% end %>
     </div>
 
     <div class="row mt-3 mb-3 px-3">
-        <%link_to "Call", company_url(company), :class=>"mr-3"%>
-        <%=link_to "Email", company_url(company), :class=>"mr-3"%>
-        <%=link_to "Meet", company_url(company), :class=>"mr-3"%>
-        <%=link_to "Task", company_url(company), :class=>"mr-3"%>
-        <%=link_to "Note", company_url(company), :class=>"mr-3"%>
+        <%link_to "Call", deal_url(deal), :class=>"mr-3"%>
+        <%=link_to "Email", deal_url(deal), :class=>"mr-3"%>
+        <%=link_to "Meet", deal_url(deal), :class=>"mr-3"%>
+        <%=link_to "Task", deal_url(deal), :class=>"mr-3"%>
+        <%=link_to "Note", deal_url(deal), :class=>"mr-3"%>
     </div>
     <br />
 
@@ -18,7 +18,8 @@
         <div class="detail-card row">
             <div class="detail-heading col">Phone</div> 
             <div class="detail-text col">
-                <%= company.phone %>
+                <%# deal.phone %>
+                data
                 <div class="detail-seperator">
                     <hr />
                 </div>
@@ -27,7 +28,8 @@
         <div class="detail-card row">
             <div class="detail-heading col">Email</div> 
             <div class="detail-text col">
-                <%# company.email %>
+                <%# deal.email %>
+                data
                 <div class="detail-seperator">
                     <hr />
                 </div>
@@ -36,13 +38,14 @@
         <div class="detail-card row">
             <div class="detail-heading col">Contacts</div> 
             <div class="detail-text col">
-                <%# if company.company %>
-                    <%# link_to company.company do %>
-                        <%# company.company.name %>
+                <%# if deal.deal %>
+                    <%# link_to deal.deal do %>
+                        <%# deal.deal.name %>
                     <%# end %>
                 <%# else %>
-                    <%= link_to "Add Contacts", add_company_contacts_url(company) %></span>
+                    <%# link_to "Add Contacts", add_deal_contacts_url(deal) %></span>
                 <%# end %>
+                    data
                 <div class="detail-seperator">
                     <hr />
                 </div>
@@ -51,7 +54,8 @@
         <div class="detail-card row">
             <div class="detail-heading col">Status</div> 
             <div class="detail-text col">
-                <%# get_label_text(company.label)%>
+                <%# get_label_text(deal.label)%>
+                data
                 <div class="detail-seperator">
                     <hr />
                 </div>
@@ -62,12 +66,12 @@
 
     <div class="row mt-5">
         <div class="col-6">
-            <%= link_to "+", new_company_url, :class=>"company-info-link" %>
+            <%= link_to "+", new_deal_url, :class=>"deal-info-link" %>
         </div>
 
         <div class="col-6">
-            <%= link_to "Edit", edit_company_url(company), :class=>"mr-3 company-info-link" %>
-            <%= link_to "Delete", company_url(company), method: :delete, :class=>"company-info-link"%>
+            <%= link_to "Edit", edit_deal_url(deal), :class=>"mr-3 deal-info-link" %>
+            <%= link_to "Delete", deal_url(deal), method: :delete, :class=>"deal-info-link"%>
         </div>
     </div>
 </div>
