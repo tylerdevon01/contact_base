@@ -1,8 +1,8 @@
-<div>
-    <%= link_to "New Contact", new_contact_url, :class=>"contact-info-link" %>
-</div>
 
 <div id="contact-index-wrapper" class="row">
+    <div>
+        <%= link_to "New Contact", new_contact_url, :class=>"contact-info-link" %>
+    </div>
     <div class="col-lg-7 px-5 py-5">
         <div class="mb-3">
             <%= form_tag contacts_path, method: :get do %>
